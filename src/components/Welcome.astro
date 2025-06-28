@@ -208,32 +208,20 @@
 		}
 	}
 </style> -->
-<div class="">
-  <header class="">
-    <nav
-      class="flex fixed top-0 left-0 right-0 bg-transparent z-50 flex-row rounded-b-2xl max-w-[1204px] mx-auto mt-6 shadow-md px-12 py-6 gap-16 font-semibold text-3xl items-end justify-between"
-    >
-      <div class="rounded-full w-5 h-5 bg-black"></div>
-      <div class="flex flex-row gap-16">
-        <a href="#">Inicio</a>
-        <a href="#">Herramientas</a>
-        <a href="#">Proyectos</a>
-        <a href="#">Contacto</a>
-      </div>
-    </nav>
-  </header>
-  <main class="pt-32">
+<div class="font-clash-display">
+  <main class="flex flex-col gap-52 pt-32">
+    <!-- Vista Inicio -->
     <div class="flex flex- justify-center gap-8">
       <div class="flex flex-col justify-between max-w-lg">
-		<div class="flex flex-col gap-4 items-center">
-			<h1 class="font-medium text-8xl font-clash-display">Front End . <br /> Ux/Ui .</h1>
-			<p class=" text-2xl font-medium max-w-md">
-			  Hi! I’m a curious mind with a passion for technology, storytelling,
-			  and creative problem-solving. I thrive when I’m learning something
-			  new—whether it’s a programming language, a design tool, or just how to
-			  make the perfect cup of coffee.
-			</p>
-		</div>
+        <div class="flex flex-col gap-4 items-center">
+          <h1 class="font-medium text-8xl">Front End . <br /> Ux/Ui .</h1>
+          <p class="text-2xl font-medium max-w-md">
+            Hi! I’m a curious mind with a passion for technology, storytelling,
+            and creative problem-solving. I thrive when I’m learning something
+            new—whether it’s a programming language, a design tool, or just how
+            to make the perfect cup of coffee.
+          </p>
+        </div>
         <div class="flex flex-col gap-4 self-end font-semibold text-2xl">
           <h3>Encuéntrame en :</h3>
           <div class="flex flex-row gap-4 self-end">
@@ -327,7 +315,169 @@
           </div>
         </div>
       </div>
-      <figure class="object-contain"><img class="w-[550px] rounded-3xl" src="/AiSamuel2.png" alt="" /></figure>
+      <figure class="object-contain">
+        <img class="w-[550px] rounded-3xl" src="/AiSamuel2.png" alt="" />
+      </figure>
     </div>
+
+	<!-- Herramientas -->
+    <div class="h-screen bg-primary rounded-bl-[136px] rounded-tr-[136px]">
+      <h3 class="text-secondary font-medium text-5xl">
+        Frameworks y herramientas
+      </h3>
+      <div class="grid grid-cols-3 grid-rows-3 place-items-end">
+        <div
+          class="px-6 py-4 border-2 rounded-[40px] h-full w-[150px] border-secondary col-span-1 row-span-3"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            viewBox="0 0 256 256"
+            ><g fill="none"
+              ><rect width="48" height="48" fill="#30382F" rx="60"></rect><g
+                clip-path="url(#skillIconsFigmaLight0)"
+                ><path
+                  fill="#0acf83"
+                  d="M94.347 228c18.4 0 33.333-14.933 33.333-33.333v-33.334H94.347c-18.4 0-33.334 14.934-33.334 33.334S75.947 228 94.347 228"
+                ></path><path
+                  fill="#a259ff"
+                  d="M61.013 128c0-18.4 14.934-33.333 33.334-33.333h33.333v66.666H94.347c-18.4 0-33.334-14.933-33.334-33.333"
+                ></path><path
+                  fill="#f24e1e"
+                  d="M61.013 61.333C61.013 42.933 75.947 28 94.347 28h33.333v66.667H94.347c-18.4 0-33.334-14.934-33.334-33.334"
+                ></path><path
+                  fill="#ff7262"
+                  d="M127.68 28h33.333c18.4 0 33.334 14.933 33.334 33.333s-14.934 33.334-33.334 33.334H127.68z"
+                ></path><path
+                  fill="#1abcfe"
+                  d="M194.347 128c0 18.4-14.934 33.333-33.334 33.333S127.68 146.4 127.68 128s14.933-33.333 33.333-33.333S194.347 109.6 194.347 128"
+                ></path></g
+              ><defs
+                ><clipPath id="skillIconsFigmaLight0"
+                  ><path fill="#fff" d="M61 28h133.36v200H61z"></path></clipPath
+                ></defs
+              ></g
+            ></svg
+          >
+          <slot />
+        </div>
+        <div
+          class="px-6 py-4 border-3 rounded-[40px] border-secondary col-span-1 row-span-1"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            viewBox="0 0 256 256"
+            ><g fill="none"
+              ><rect width="48" height="48" fill="#30382F" rx="60"></rect><g
+                clip-path="url(#skillIconsFigmaLight0)"
+                ><path
+                  fill="#0acf83"
+                  d="M94.347 228c18.4 0 33.333-14.933 33.333-33.333v-33.334H94.347c-18.4 0-33.334 14.934-33.334 33.334S75.947 228 94.347 228"
+                ></path><path
+                  fill="#a259ff"
+                  d="M61.013 128c0-18.4 14.934-33.333 33.334-33.333h33.333v66.666H94.347c-18.4 0-33.334-14.933-33.334-33.333"
+                ></path><path
+                  fill="#f24e1e"
+                  d="M61.013 61.333C61.013 42.933 75.947 28 94.347 28h33.333v66.667H94.347c-18.4 0-33.334-14.934-33.334-33.334"
+                ></path><path
+                  fill="#ff7262"
+                  d="M127.68 28h33.333c18.4 0 33.334 14.933 33.334 33.333s-14.934 33.334-33.334 33.334H127.68z"
+                ></path><path
+                  fill="#1abcfe"
+                  d="M194.347 128c0 18.4-14.934 33.333-33.334 33.333S127.68 146.4 127.68 128s14.933-33.333 33.333-33.333S194.347 109.6 194.347 128"
+                ></path></g
+              ><defs
+                ><clipPath id="skillIconsFigmaLight0"
+                  ><path fill="#fff" d="M61 28h133.36v200H61z"></path></clipPath
+                ></defs
+              ></g
+            ></svg
+          >
+          <slot />
+        </div>
+        <div
+          class="px-6 py-4 border-3 rounded-[40px] border-secondary col-span-1 row-span-1"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            viewBox="0 0 256 256"
+            ><g fill="none"
+              ><rect width="48" height="48" fill="#30382F" rx="60"></rect><g
+                clip-path="url(#skillIconsFigmaLight0)"
+                ><path
+                  fill="#0acf83"
+                  d="M94.347 228c18.4 0 33.333-14.933 33.333-33.333v-33.334H94.347c-18.4 0-33.334 14.934-33.334 33.334S75.947 228 94.347 228"
+                ></path><path
+                  fill="#a259ff"
+                  d="M61.013 128c0-18.4 14.934-33.333 33.334-33.333h33.333v66.666H94.347c-18.4 0-33.334-14.933-33.334-33.333"
+                ></path><path
+                  fill="#f24e1e"
+                  d="M61.013 61.333C61.013 42.933 75.947 28 94.347 28h33.333v66.667H94.347c-18.4 0-33.334-14.934-33.334-33.334"
+                ></path><path
+                  fill="#ff7262"
+                  d="M127.68 28h33.333c18.4 0 33.334 14.933 33.334 33.333s-14.934 33.334-33.334 33.334H127.68z"
+                ></path><path
+                  fill="#1abcfe"
+                  d="M194.347 128c0 18.4-14.934 33.333-33.334 33.333S127.68 146.4 127.68 128s14.933-33.333 33.333-33.333S194.347 109.6 194.347 128"
+                ></path></g
+              ><defs
+                ><clipPath id="skillIconsFigmaLight0"
+                  ><path fill="#fff" d="M61 28h133.36v200H61z"></path></clipPath
+                ></defs
+              ></g
+            ></svg
+          >
+          <slot />
+        </div>
+        <div
+          class="px-6 py-4 border-3 rounded-[40px] border-secondary col-span-2 row-span-2"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            viewBox="0 0 256 256"
+            ><g fill="none"
+              ><rect width="48" height="48" fill="#30382F" rx="60"></rect><g
+                clip-path="url(#skillIconsFigmaLight0)"
+                ><path
+                  fill="#0acf83"
+                  d="M94.347 228c18.4 0 33.333-14.933 33.333-33.333v-33.334H94.347c-18.4 0-33.334 14.934-33.334 33.334S75.947 228 94.347 228"
+                ></path><path
+                  fill="#a259ff"
+                  d="M61.013 128c0-18.4 14.934-33.333 33.334-33.333h33.333v66.666H94.347c-18.4 0-33.334-14.933-33.334-33.333"
+                ></path><path
+                  fill="#f24e1e"
+                  d="M61.013 61.333C61.013 42.933 75.947 28 94.347 28h33.333v66.667H94.347c-18.4 0-33.334-14.934-33.334-33.334"
+                ></path><path
+                  fill="#ff7262"
+                  d="M127.68 28h33.333c18.4 0 33.334 14.933 33.334 33.333s-14.934 33.334-33.334 33.334H127.68z"
+                ></path><path
+                  fill="#1abcfe"
+                  d="M194.347 128c0 18.4-14.934 33.333-33.334 33.333S127.68 146.4 127.68 128s14.933-33.333 33.333-33.333S194.347 109.6 194.347 128"
+                ></path></g
+              ><defs
+                ><clipPath id="skillIconsFigmaLight0"
+                  ><path fill="#fff" d="M61 28h133.36v200H61z"></path></clipPath
+                ></defs
+              ></g
+            ></svg
+          >
+          <slot />
+        </div>
+      </div>
+    </div>
+	
+	<!-- Vista Proyectos y contribuciones -->
+    <div class="flex flex-wrap">
+		
+		
+	  </div>
+    <div></div>
   </main>
 </div>
