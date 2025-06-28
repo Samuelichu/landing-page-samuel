@@ -6,6 +6,14 @@ export default {
       fontFamily: {
         "clash-display": ["ClashDisplay", "sans-serif"],
       },
+      colors: {
+        primary: {
+          DEFAULT: '#30382F', // Verde principal
+        },
+        secondary: {
+          DEFAULT: '#FFFBDf', // Blanco principal
+        }
+      }
     },
   },
   plugins: [],
