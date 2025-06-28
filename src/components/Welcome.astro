@@ -1,4 +1,7 @@
 ---
+import CardProyectos from "./CardProyectos.astro";
+import CardServicios from "./CardServicios.astro";
+
 // import astroLogo from "../assets/astro.svg";
 // import background from "../assets/background.svg";
 ---
@@ -320,7 +323,7 @@
       </figure>
     </div>
 
-	<!-- Herramientas -->
+    <!-- Herramientas -->
     <div class="h-screen bg-primary rounded-bl-[136px] rounded-tr-[136px]">
       <h3 class="text-secondary font-medium text-5xl">
         Frameworks y herramientas
@@ -472,12 +475,58 @@
         </div>
       </div>
     </div>
-	
-	<!-- Vista Proyectos y contribuciones -->
-    <div class="flex flex-wrap">
-		
-		
-	  </div>
-    <div></div>
+
+    <!-- Vista Proyectos y contribuciones -->
+
+    <div class="flex flex-col gap-24 h-screen">
+      <h2 class="text-primary font-semibold text-4xl mx-20">
+        Proyectos y Colaboraciones
+      </h2>
+      <div class="flex flex-wrap justify-center gap-11">
+        <CardProyectos
+          titulo="Web Chirasoft"
+          src="/Chirasoft.png"
+          descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+        />
+        <CardProyectos
+          titulo="Web Chirasoft"
+          src=""
+          descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+        />
+      </div>
+    </div>
+
+    <!-- Vista mis servicios-->
+    <div class="flex flex-col gap-16 h-screen">
+      <h2 class="text-primary font-semibold text-4xl mx-20">Mis Servicios</h2>
+
+      <div class="">
+        <div class="bg-primary py-11">
+          <div class="flex flex-wrap justify-center gap-11">
+            <CardServicios
+              titulo="Diseños UX/UI"
+              descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+            />
+            <CardServicios
+              titulo="Desarrollo Front End"
+              descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+            />
+          </div>
+        </div>
+
+        <div class="bg-primary mx-20 rounded-b-3xl">
+          <div class="flex flex-wrap justify-center gap-11">
+            <CardServicios
+              titulo="Diseños UX/UI"
+              descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+            />
+            <CardServicios
+              titulo="Desarrollo Front End"
+              descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 </div>
