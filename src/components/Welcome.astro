@@ -1,6 +1,8 @@
 ---
 import CardProyectos from "./CardProyectos.astro";
 import CardServicios from "./CardServicios.astro";
+import Fases from "./Fases.astro";
+import Footer from "./Footer.astro";
 
 // import astroLogo from "../assets/astro.svg";
 // import background from "../assets/background.svg";
@@ -211,7 +213,7 @@ import CardServicios from "./CardServicios.astro";
 		}
 	}
 </style> -->
-<div class="font-clash-display">
+<div class="">
   <main class="flex flex-col gap-52 pt-32">
     <!-- Vista Inicio -->
     <div class="flex flex- justify-center gap-8">
@@ -497,10 +499,11 @@ import CardServicios from "./CardServicios.astro";
     </div>
 
     <!-- Vista mis servicios-->
-    <div class="flex flex-col gap-16 h-screen">
+    <div class="flex flex-col gap-16 h-max">
       <h2 class="text-primary font-semibold text-4xl mx-20">Mis Servicios</h2>
 
-      <div class="">
+      <!--servicios-->
+      <div class="flex flex-col">
         <div class="bg-primary py-11">
           <div class="flex flex-wrap justify-center gap-11">
             <CardServicios
@@ -513,19 +516,56 @@ import CardServicios from "./CardServicios.astro";
             />
           </div>
         </div>
-
-        <div class="bg-primary mx-20 rounded-b-3xl">
-          <div class="flex flex-wrap justify-center gap-11">
-            <CardServicios
-              titulo="Diseños UX/UI"
-              descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
-            />
-            <CardServicios
-              titulo="Desarrollo Front End"
-              descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
-            />
-          </div>
+        <!-- fases -->
+        <div
+          class="bg-primary mx-20 rounded-b-3xl flex flex-wrap justify-center gap-11"
+        >
+          <Fases
+            titulo="Descubrimiento y Planificación"
+            number="01"
+            descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          />
+          <Fases
+            titulo="Desarrollo"
+            number="02"
+            descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          />
+          <Fases
+            titulo="Despliegue y Entrega"
+            number="03"
+            descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          />
         </div>
+      </div>
+    </div>
+
+    <div class="flex flex-row justify-around gap-5">
+      <div>
+        <h2>hola</h2>
+        <h2>mi king</h2>
+        <h2>leon</h2>
+      </div>
+      <svg
+        width="117"
+        height="1296"
+        viewBox="0 0 117 1296"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0.0140136 2.80652C-0.111441 1.43201 0.630546 0.183838 1.67156 0.0181885C2.71257 -0.147461 3.65788 0.832153 3.78335 2.20667L63.3865 718.039C63.4618 718.944 63.6599 719.834 63.9754 720.685L116.368 862.03C117.402 864.82 117.14 867.925 115.653 870.502L37.4908 1005.99C36.8063 1007.18 36.3729 1008.49 36.2174 1009.85L3.77593 1293.87C3.61958 1295.24 2.65262 1296.18 1.61594 1295.97C0.579231 1295.77 -0.134718 1294.49 0.0214299 1293.12L32.6085 1007.84C32.7639 1006.47 33.1973 1005.16 33.8819 1003.97L111.271 869.824C112.762 867.24 113.021 864.125 111.978 861.33L59.4842 720.699C59.163 719.839 58.9619 718.938 58.8866 718.023L0.0140136 2.80652Z"
+          fill="#30382F"></path>
+      </svg>
+      <!-- Vista mis logros-->
+      <div class="flex flex-col gap-5">
+        <div>Texto Biblico</div>
+        <img src="" alt="" />
+        <p class="max-w-80">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod,
+          justo eget scelerisque sollicitudin, odio turpis lacinia massa, non
+          tincidunt neque sem vel neque. Praesent eget purus vel massa consequat
+          volutpat.
+        </p>
       </div>
     </div>
   </main>
