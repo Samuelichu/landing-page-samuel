@@ -1,218 +1,10 @@
 ---
-import CardProyectos from "./CardProyectos.astro";
-import CardServicios from "./CardServicios.astro";
-import Fases from "./Fases.astro";
-import Footer from "./Footer.astro";
-
-// import astroLogo from "../assets/astro.svg";
-// import background from "../assets/background.svg";
+import CardProyects from "./CardProyects.astro";
+import CardServices from "./CardServices.astro";
+import CardTools from "./CardTools.astro";
+import Phases from "./Phases.astro";
 ---
 
-<!-- <div id="container">
-	<img id="background" src={background.src} alt="" fetchpriority="high" />
-	<main>
-		<section id="hero">
-			<a href="https://astro.build"
-				><img src={astroLogo.src} width="115" height="48" alt="Astro Homepage" /></a
-			>
-			<h1>
-				To get started, open the <code><pre>src/pages</pre></code> directory in your project.
-			</h1>
-			<section id="links">
-				<a class="button" href="https://docs.astro.build">Read our docs</a>
-				<a href="https://astro.build/chat"
-					>Join our Discord <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36"
-						><path
-							fill="currentColor"
-							d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.11 0A72.37 72.37 0 0 0 45.64 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.71 56.6.54 80.21a105.73 105.73 0 0 0 32.17 16.15 77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.18c.91-.66 1.8-1.34 2.66-2a75.57 75.57 0 0 0 64.32 0c.87.71 1.76 1.39 2.66 2a68.68 68.68 0 0 1-10.87 5.19 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.19-16.14c2.64-27.38-4.51-51.11-18.9-72.15ZM42.45 65.69C36.18 65.69 31 60 31 53s5-12.74 11.43-12.74S54 46 53.89 53s-5.05 12.69-11.44 12.69Zm42.24 0C78.41 65.69 73.25 60 73.25 53s5-12.74 11.44-12.74S96.23 46 96.12 53s-5.04 12.69-11.43 12.69Z"
-						></path></svg
-					>
-				</a>
-			</section>
-		</section>
-	</main>
-
-	<a href="https://astro.build/blog/astro-5/" id="news" class="box">
-		<svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"
-			><path
-				d="M24.667 12c1.333 1.414 2 3.192 2 5.334 0 4.62-4.934 5.7-7.334 12C18.444 28.567 18 27.456 18 26c0-4.642 6.667-7.053 6.667-14Zm-5.334-5.333c1.6 1.65 2.4 3.43 2.4 5.333 0 6.602-8.06 7.59-6.4 17.334C13.111 27.787 12 25.564 12 22.666c0-4.434 7.333-8 7.333-16Zm-6-5.333C15.111 3.555 16 5.556 16 7.333c0 8.333-11.333 10.962-5.333 22-3.488-.774-6-4-6-8 0-8.667 8.666-10 8.666-20Z"
-				fill="#111827"></path></svg
-		>
-		<h2>What's New in Astro 5.0?</h2>
-		<p>
-			From content layers to server islands, click to learn more about the new features and
-			improvements in Astro 5.0
-		</p>
-	</a>
-</div>
-
-<style>
-	#background {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-		filter: blur(100px);
-	}
-
-	#container {
-		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
-		height: 100%;
-	}
-
-	main {
-		height: 100%;
-		display: flex;
-		justify-content: center;
-	}
-
-	#hero {
-		display: flex;
-		align-items: start;
-		flex-direction: column;
-		justify-content: center;
-		padding: 16px;
-	}
-
-	h1 {
-		font-size: 22px;
-		margin-top: 0.25em;
-	}
-
-	#links {
-		display: flex;
-		gap: 16px;
-	}
-
-	#links a {
-		display: flex;
-		align-items: center;
-		padding: 10px 12px;
-		color: #111827;
-		text-decoration: none;
-		transition: color 0.2s;
-	}
-
-	#links a:hover {
-		color: rgb(78, 80, 86);
-	}
-
-	#links a svg {
-		height: 1em;
-		margin-left: 8px;
-	}
-
-	#links a.button {
-		color: white;
-		background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
-		box-shadow:
-			inset 0 0 0 1px rgba(255, 255, 255, 0.12),
-			inset 0 -2px 0 rgba(0, 0, 0, 0.24);
-		border-radius: 10px;
-	}
-
-	#links a.button:hover {
-		color: rgb(230, 230, 230);
-		box-shadow: none;
-	}
-
-	pre {
-		font-family:
-			ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono',
-			monospace;
-		font-weight: normal;
-		background: linear-gradient(14deg, #d83333 0%, #f041ff 100%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-		margin: 0;
-	}
-
-	h2 {
-		margin: 0 0 1em;
-		font-weight: normal;
-		color: #111827;
-		font-size: 20px;
-	}
-
-	p {
-		color: #4b5563;
-		font-size: 16px;
-		line-height: 24px;
-		letter-spacing: -0.006em;
-		margin: 0;
-	}
-
-	code {
-		display: inline-block;
-		background:
-			linear-gradient(66.77deg, #f3cddd 0%, #f5cee7 100%) padding-box,
-			linear-gradient(155deg, #d83333 0%, #f041ff 18%, #f5cee7 45%) border-box;
-		border-radius: 8px;
-		border: 1px solid transparent;
-		padding: 6px 8px;
-	}
-
-	.box {
-		padding: 16px;
-		background: rgba(255, 255, 255, 1);
-		border-radius: 16px;
-		border: 1px solid white;
-	}
-
-	#news {
-		position: absolute;
-		bottom: 16px;
-		right: 16px;
-		max-width: 300px;
-		text-decoration: none;
-		transition: background 0.2s;
-		backdrop-filter: blur(50px);
-	}
-
-	#news:hover {
-		background: rgba(255, 255, 255, 0.55);
-	}
-
-	@media screen and (max-height: 368px) {
-		#news {
-			display: none;
-		}
-	}
-
-	@media screen and (max-width: 768px) {
-		#container {
-			display: flex;
-			flex-direction: column;
-		}
-
-		#hero {
-			display: block;
-			padding-top: 10%;
-		}
-
-		#links {
-			flex-wrap: wrap;
-		}
-
-		#links a.button {
-			padding: 14px 18px;
-		}
-
-		#news {
-			right: 16px;
-			left: 16px;
-			bottom: 2.5rem;
-			max-width: 100%;
-		}
-
-		h1 {
-			line-height: 1.5;
-		}
-	}
-</style> -->
 <div class="">
   <main class="flex flex-col gap-52 pt-32">
     <!-- Vista Inicio -->
@@ -330,10 +122,8 @@ import Footer from "./Footer.astro";
       <h3 class="text-secondary font-medium text-5xl">
         Frameworks y herramientas
       </h3>
-      <div class="grid grid-cols-3 grid-rows-3 place-items-end">
-        <div
-          class="px-6 py-4 border-2 rounded-[40px] h-full w-[150px] border-secondary col-span-1 row-span-3"
-        >
+      <div class="grid grid-cols-2 gap-y-2 place-items-end">
+        <CardTools>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="48"
@@ -365,116 +155,177 @@ import Footer from "./Footer.astro";
               ></g
             ></svg
           >
-          <slot />
+        </CardTools>
+        <div class="grid grid-cols-4">
+          <div class="col-span-1">
+            <CardTools>
+              <svg
+                width="48"
+                height="48"
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.85298 40.8015L5.48248 3H42.5175L39.1425 40.7955L23.9775 45L8.85298 40.8015Z"
+                  fill="#E44F26"></path>
+                <path
+                  d="M24 41.787L36.255 38.3895L39.138 6.09151H24V41.787Z"
+                  fill="#F1662A"></path>
+                <path
+                  d="M24 20.1105H17.865L17.442 15.363H24V10.7265H12.375L12.486 11.9715L13.6245 24.747H24V20.1105ZM24 32.151L23.979 32.157L18.816 30.7635L18.486 27.066H13.8315L14.481 34.344L23.979 36.981L24 36.975V32.151Z"
+                  fill="#EBEBEB"></path>
+                <path
+                  d="M23.9835 20.1105V24.747H29.6925L29.1555 30.7605L23.9835 32.1555V36.9795L33.489 34.344L33.558 33.561L34.647 21.3555L34.761 20.1105H23.9835ZM23.9835 10.7265V15.363H35.1825L35.2755 14.322L35.487 11.9715L35.598 10.7265H23.9835Z"
+                  fill="white"></path>
+              </svg>
+            </CardTools>
+          </div>
+          <div class="col-span-1">
+            <CardTools>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                viewBox="0 0 256 256"
+                ><g fill="none"
+                  ><rect width="48" height="48" fill="#30382F" rx="60"></rect><g
+                    clip-path="url(#skillIconsFigmaLight0)"
+                    ><path
+                      fill="#0acf83"
+                      d="M94.347 228c18.4 0 33.333-14.933 33.333-33.333v-33.334H94.347c-18.4 0-33.334 14.934-33.334 33.334S75.947 228 94.347 228"
+                    ></path><path
+                      fill="#a259ff"
+                      d="M61.013 128c0-18.4 14.934-33.333 33.334-33.333h33.333v66.666H94.347c-18.4 0-33.334-14.933-33.334-33.333"
+                    ></path><path
+                      fill="#f24e1e"
+                      d="M61.013 61.333C61.013 42.933 75.947 28 94.347 28h33.333v66.667H94.347c-18.4 0-33.334-14.934-33.334-33.334"
+                    ></path><path
+                      fill="#ff7262"
+                      d="M127.68 28h33.333c18.4 0 33.334 14.933 33.334 33.333s-14.934 33.334-33.334 33.334H127.68z"
+                    ></path><path
+                      fill="#1abcfe"
+                      d="M194.347 128c0 18.4-14.934 33.333-33.334 33.333S127.68 146.4 127.68 128s14.933-33.333 33.333-33.333S194.347 109.6 194.347 128"
+                    ></path></g
+                  ><defs
+                    ><clipPath id="skillIconsFigmaLight0"
+                      ><path fill="#fff" d="M61 28h133.36v200H61z"
+                      ></path></clipPath
+                    ></defs
+                  ></g
+                ></svg
+              >
+            </CardTools>
+          </div>
+          <div class="col-span-2"></div>
+          <div class="col-span-2">
+            <CardTools>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                viewBox="0 0 256 256"
+                ><g fill="none"
+                  ><rect width="48" height="48" fill="#30382F" rx="60"></rect><g
+                    clip-path="url(#skillIconsFigmaLight0)"
+                    ><path
+                      fill="#0acf83"
+                      d="M94.347 228c18.4 0 33.333-14.933 33.333-33.333v-33.334H94.347c-18.4 0-33.334 14.934-33.334 33.334S75.947 228 94.347 228"
+                    ></path><path
+                      fill="#a259ff"
+                      d="M61.013 128c0-18.4 14.934-33.333 33.334-33.333h33.333v66.666H94.347c-18.4 0-33.334-14.933-33.334-33.333"
+                    ></path><path
+                      fill="#f24e1e"
+                      d="M61.013 61.333C61.013 42.933 75.947 28 94.347 28h33.333v66.667H94.347c-18.4 0-33.334-14.934-33.334-33.334"
+                    ></path><path
+                      fill="#ff7262"
+                      d="M127.68 28h33.333c18.4 0 33.334 14.933 33.334 33.333s-14.934 33.334-33.334 33.334H127.68z"
+                    ></path><path
+                      fill="#1abcfe"
+                      d="M194.347 128c0 18.4-14.934 33.333-33.334 33.333S127.68 146.4 127.68 128s14.933-33.333 33.333-33.333S194.347 109.6 194.347 128"
+                    ></path></g
+                  ><defs
+                    ><clipPath id="skillIconsFigmaLight0"
+                      ><path fill="#fff" d="M61 28h133.36v200H61z"
+                      ></path></clipPath
+                    ></defs
+                  ></g
+                ></svg
+              >
+            </CardTools>
+          </div>
+          <div class="col-span-2 grid grid-cols-1">
+            <CardTools>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                viewBox="0 0 256 256"
+                ><g fill="none"
+                  ><rect width="48" height="48" fill="#30382F" rx="60"></rect><g
+                    clip-path="url(#skillIconsFigmaLight0)"
+                    ><path
+                      fill="#0acf83"
+                      d="M94.347 228c18.4 0 33.333-14.933 33.333-33.333v-33.334H94.347c-18.4 0-33.334 14.934-33.334 33.334S75.947 228 94.347 228"
+                    ></path><path
+                      fill="#a259ff"
+                      d="M61.013 128c0-18.4 14.934-33.333 33.334-33.333h33.333v66.666H94.347c-18.4 0-33.334-14.933-33.334-33.333"
+                    ></path><path
+                      fill="#f24e1e"
+                      d="M61.013 61.333C61.013 42.933 75.947 28 94.347 28h33.333v66.667H94.347c-18.4 0-33.334-14.934-33.334-33.334"
+                    ></path><path
+                      fill="#ff7262"
+                      d="M127.68 28h33.333c18.4 0 33.334 14.933 33.334 33.333s-14.934 33.334-33.334 33.334H127.68z"
+                    ></path><path
+                      fill="#1abcfe"
+                      d="M194.347 128c0 18.4-14.934 33.333-33.334 33.333S127.68 146.4 127.68 128s14.933-33.333 33.333-33.333S194.347 109.6 194.347 128"
+                    ></path></g
+                  ><defs
+                    ><clipPath id="skillIconsFigmaLight0"
+                      ><path fill="#fff" d="M61 28h133.36v200H61z"
+                      ></path></clipPath
+                    ></defs
+                  ></g
+                ></svg
+              >
+            </CardTools>
+            <CardTools>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                viewBox="0 0 256 256"
+                ><g fill="none"
+                  ><rect width="48" height="48" fill="#30382F" rx="60"></rect><g
+                    clip-path="url(#skillIconsFigmaLight0)"
+                    ><path
+                      fill="#0acf83"
+                      d="M94.347 228c18.4 0 33.333-14.933 33.333-33.333v-33.334H94.347c-18.4 0-33.334 14.934-33.334 33.334S75.947 228 94.347 228"
+                    ></path><path
+                      fill="#a259ff"
+                      d="M61.013 128c0-18.4 14.934-33.333 33.334-33.333h33.333v66.666H94.347c-18.4 0-33.334-14.933-33.334-33.333"
+                    ></path><path
+                      fill="#f24e1e"
+                      d="M61.013 61.333C61.013 42.933 75.947 28 94.347 28h33.333v66.667H94.347c-18.4 0-33.334-14.934-33.334-33.334"
+                    ></path><path
+                      fill="#ff7262"
+                      d="M127.68 28h33.333c18.4 0 33.334 14.933 33.334 33.333s-14.934 33.334-33.334 33.334H127.68z"
+                    ></path><path
+                      fill="#1abcfe"
+                      d="M194.347 128c0 18.4-14.934 33.333-33.334 33.333S127.68 146.4 127.68 128s14.933-33.333 33.333-33.333S194.347 109.6 194.347 128"
+                    ></path></g
+                  ><defs
+                    ><clipPath id="skillIconsFigmaLight0"
+                      ><path fill="#fff" d="M61 28h133.36v200H61z"
+                      ></path></clipPath
+                    ></defs
+                  ></g
+                ></svg
+              >
+            </CardTools>
+          </div>
         </div>
-        <div
-          class="px-6 py-4 border-3 rounded-[40px] border-secondary col-span-1 row-span-1"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="48"
-            height="48"
-            viewBox="0 0 256 256"
-            ><g fill="none"
-              ><rect width="48" height="48" fill="#30382F" rx="60"></rect><g
-                clip-path="url(#skillIconsFigmaLight0)"
-                ><path
-                  fill="#0acf83"
-                  d="M94.347 228c18.4 0 33.333-14.933 33.333-33.333v-33.334H94.347c-18.4 0-33.334 14.934-33.334 33.334S75.947 228 94.347 228"
-                ></path><path
-                  fill="#a259ff"
-                  d="M61.013 128c0-18.4 14.934-33.333 33.334-33.333h33.333v66.666H94.347c-18.4 0-33.334-14.933-33.334-33.333"
-                ></path><path
-                  fill="#f24e1e"
-                  d="M61.013 61.333C61.013 42.933 75.947 28 94.347 28h33.333v66.667H94.347c-18.4 0-33.334-14.934-33.334-33.334"
-                ></path><path
-                  fill="#ff7262"
-                  d="M127.68 28h33.333c18.4 0 33.334 14.933 33.334 33.333s-14.934 33.334-33.334 33.334H127.68z"
-                ></path><path
-                  fill="#1abcfe"
-                  d="M194.347 128c0 18.4-14.934 33.333-33.334 33.333S127.68 146.4 127.68 128s14.933-33.333 33.333-33.333S194.347 109.6 194.347 128"
-                ></path></g
-              ><defs
-                ><clipPath id="skillIconsFigmaLight0"
-                  ><path fill="#fff" d="M61 28h133.36v200H61z"></path></clipPath
-                ></defs
-              ></g
-            ></svg
-          >
-          <slot />
-        </div>
-        <div
-          class="px-6 py-4 border-3 rounded-[40px] border-secondary col-span-1 row-span-1"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="48"
-            height="48"
-            viewBox="0 0 256 256"
-            ><g fill="none"
-              ><rect width="48" height="48" fill="#30382F" rx="60"></rect><g
-                clip-path="url(#skillIconsFigmaLight0)"
-                ><path
-                  fill="#0acf83"
-                  d="M94.347 228c18.4 0 33.333-14.933 33.333-33.333v-33.334H94.347c-18.4 0-33.334 14.934-33.334 33.334S75.947 228 94.347 228"
-                ></path><path
-                  fill="#a259ff"
-                  d="M61.013 128c0-18.4 14.934-33.333 33.334-33.333h33.333v66.666H94.347c-18.4 0-33.334-14.933-33.334-33.333"
-                ></path><path
-                  fill="#f24e1e"
-                  d="M61.013 61.333C61.013 42.933 75.947 28 94.347 28h33.333v66.667H94.347c-18.4 0-33.334-14.934-33.334-33.334"
-                ></path><path
-                  fill="#ff7262"
-                  d="M127.68 28h33.333c18.4 0 33.334 14.933 33.334 33.333s-14.934 33.334-33.334 33.334H127.68z"
-                ></path><path
-                  fill="#1abcfe"
-                  d="M194.347 128c0 18.4-14.934 33.333-33.334 33.333S127.68 146.4 127.68 128s14.933-33.333 33.333-33.333S194.347 109.6 194.347 128"
-                ></path></g
-              ><defs
-                ><clipPath id="skillIconsFigmaLight0"
-                  ><path fill="#fff" d="M61 28h133.36v200H61z"></path></clipPath
-                ></defs
-              ></g
-            ></svg
-          >
-          <slot />
-        </div>
-        <div
-          class="px-6 py-4 border-3 rounded-[40px] border-secondary col-span-2 row-span-2"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="48"
-            height="48"
-            viewBox="0 0 256 256"
-            ><g fill="none"
-              ><rect width="48" height="48" fill="#30382F" rx="60"></rect><g
-                clip-path="url(#skillIconsFigmaLight0)"
-                ><path
-                  fill="#0acf83"
-                  d="M94.347 228c18.4 0 33.333-14.933 33.333-33.333v-33.334H94.347c-18.4 0-33.334 14.934-33.334 33.334S75.947 228 94.347 228"
-                ></path><path
-                  fill="#a259ff"
-                  d="M61.013 128c0-18.4 14.934-33.333 33.334-33.333h33.333v66.666H94.347c-18.4 0-33.334-14.933-33.334-33.333"
-                ></path><path
-                  fill="#f24e1e"
-                  d="M61.013 61.333C61.013 42.933 75.947 28 94.347 28h33.333v66.667H94.347c-18.4 0-33.334-14.934-33.334-33.334"
-                ></path><path
-                  fill="#ff7262"
-                  d="M127.68 28h33.333c18.4 0 33.334 14.933 33.334 33.333s-14.934 33.334-33.334 33.334H127.68z"
-                ></path><path
-                  fill="#1abcfe"
-                  d="M194.347 128c0 18.4-14.934 33.333-33.334 33.333S127.68 146.4 127.68 128s14.933-33.333 33.333-33.333S194.347 109.6 194.347 128"
-                ></path></g
-              ><defs
-                ><clipPath id="skillIconsFigmaLight0"
-                  ><path fill="#fff" d="M61 28h133.36v200H61z"></path></clipPath
-                ></defs
-              ></g
-            ></svg
-          >
-          <slot />
-        </div>
+        <div></div>
       </div>
     </div>
 
@@ -485,12 +336,12 @@ import Footer from "./Footer.astro";
         Proyectos y Colaboraciones
       </h2>
       <div class="flex flex-wrap justify-center gap-11">
-        <CardProyectos
+        <CardProyects
           titulo="Web Chirasoft"
           src="/Chirasoft.png"
           descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
         />
-        <CardProyectos
+        <CardProyects
           titulo="Web Chirasoft"
           src=""
           descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
@@ -506,11 +357,11 @@ import Footer from "./Footer.astro";
       <div class="flex flex-col">
         <div class="bg-primary py-11">
           <div class="flex flex-wrap justify-center gap-11">
-            <CardServicios
+            <CardServices
               titulo="Diseños UX/UI"
               descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
             />
-            <CardServicios
+            <CardServices
               titulo="Desarrollo Front End"
               descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
             />
@@ -520,17 +371,17 @@ import Footer from "./Footer.astro";
         <div
           class="bg-primary mx-20 rounded-b-3xl flex flex-wrap justify-center gap-11"
         >
-          <Fases
+          <Phases
             titulo="Descubrimiento y Planificación"
             number="01"
             descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
           />
-          <Fases
+          <Phases
             titulo="Desarrollo"
             number="02"
             descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
           />
-          <Fases
+          <Phases
             titulo="Despliegue y Entrega"
             number="03"
             descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
@@ -545,7 +396,7 @@ import Footer from "./Footer.astro";
         <h2>mi king</h2>
         <h2>leon</h2>
       </div>
-      <svg
+      <!-- <svg
         width="117"
         height="1296"
         viewBox="0 0 117 1296"
@@ -555,7 +406,7 @@ import Footer from "./Footer.astro";
         <path
           d="M0.0140136 2.80652C-0.111441 1.43201 0.630546 0.183838 1.67156 0.0181885C2.71257 -0.147461 3.65788 0.832153 3.78335 2.20667L63.3865 718.039C63.4618 718.944 63.6599 719.834 63.9754 720.685L116.368 862.03C117.402 864.82 117.14 867.925 115.653 870.502L37.4908 1005.99C36.8063 1007.18 36.3729 1008.49 36.2174 1009.85L3.77593 1293.87C3.61958 1295.24 2.65262 1296.18 1.61594 1295.97C0.579231 1295.77 -0.134718 1294.49 0.0214299 1293.12L32.6085 1007.84C32.7639 1006.47 33.1973 1005.16 33.8819 1003.97L111.271 869.824C112.762 867.24 113.021 864.125 111.978 861.33L59.4842 720.699C59.163 719.839 58.9619 718.938 58.8866 718.023L0.0140136 2.80652Z"
           fill="#30382F"></path>
-      </svg>
+      </svg> -->
       <!-- Vista mis logros-->
       <div class="flex flex-col gap-5">
         <div>Texto Biblico</div>
@@ -570,3 +421,19 @@ import Footer from "./Footer.astro";
     </div>
   </main>
 </div>
+
+<!-- <script>
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger) 
+
+  gsap.to(".box", { 
+    x: 10,
+    duration: 1
+  });
+
+  gsap.to('.box', {
+	scrollTrigger: '.box', // start the animation when ".box" enters the viewport (once)
+	x: 500
+});
+</script> -->
