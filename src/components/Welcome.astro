@@ -11,7 +11,7 @@ import Phases from "./Phases.astro";
     <div class="flex flex- justify-center gap-8">
       <div class="flex flex-col justify-between max-w-lg">
         <div class="flex flex-col gap-4 items-center">
-          <h1 class="font-medium text-8xl">Front End . <br /> Ux/Ui .</h1>
+          <h1 class="font-medium text-8xl">Software <br /> Developer .</h1>
           <p class="text-2xl font-medium max-w-md">
             Hi! I’m a curious mind with a passion for technology, storytelling,
             and creative problem-solving. I thrive when I’m learning something
@@ -118,11 +118,13 @@ import Phases from "./Phases.astro";
     </div>
 
     <!-- Herramientas -->
-    <div class="h-screen bg-primary rounded-bl-[136px] rounded-tr-[136px]">
-      <h3 class="text-secondary font-medium text-5xl">
+    <div
+      class="h-screen flex flex-col justify-around bg-primary rounded-bl-[136px] rounded-tr-[136px]"
+    >
+      <h3 class="text-secondary font-medium text-5xl px-20">
         Frameworks y herramientas
       </h3>
-      <div class="grid grid-cols-2 gap-y-2 place-items-end">
+      <div class="grid grid-cols-3 gap-y-2 place-items-end">
         <CardTools>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -157,6 +159,7 @@ import Phases from "./Phases.astro";
           >
         </CardTools>
         <div class="grid grid-cols-4">
+          <!-- html -->
           <div class="col-span-1">
             <CardTools>
               <svg
@@ -181,6 +184,82 @@ import Phases from "./Phases.astro";
               </svg>
             </CardTools>
           </div>
+          <!-- css -->
+          <div class="col-span-1">
+            <CardTools>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                viewBox="0 0 128 128"
+                ><path
+                  fill="#1572b6"
+                  d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754l-45.243 12.543z"
+                ></path><path
+                  fill="#33a9dc"
+                  d="m64.001 117.062l36.559-10.136l8.601-96.354h-45.16z"
+                ></path><path
+                  fill="#fff"
+                  d="M64.001 51.429h18.302l1.264-14.163H64.001V23.435h34.682l-.332 3.711l-3.4 38.114h-30.95z"
+                ></path><path
+                  fill="#ebebeb"
+                  d="m64.083 87.349l-.061.018l-15.403-4.159l-.985-11.031H33.752l1.937 21.717l28.331 7.863l.063-.018z"
+                ></path><path
+                  fill="#fff"
+                  d="m81.127 64.675l-1.666 18.522l-15.426 4.164v14.39l28.354-7.858l.208-2.337l2.406-26.881z"
+                ></path><path
+                  fill="#ebebeb"
+                  d="M64.048 23.435v13.831H30.64l-.277-3.108l-.63-7.012l-.331-3.711zm-.047 27.996v13.831H48.792l-.277-3.108l-.631-7.012l-.33-3.711z"
+                ></path></svg
+              >
+            </CardTools>
+          </div>
+          <div class="col-span-2"></div>
+          <div class="col-span-2">
+            <CardTools>
+              <p>Algunas de las tecnologías que utilizo</p>
+            </CardTools>
+          </div>
+          <div class="col-span-2 grid grid-cols-1">
+            <!-- tailwind -->
+            <CardTools>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                viewBox="0 0 256 154"
+                ><defs
+                  ><linearGradient
+                    id="logosTailwindcssIcon0"
+                    x1="-2.778%"
+                    x2="100%"
+                    y1="32%"
+                    y2="67.556%"
+                    ><stop offset="0%" stop-color="#2298bd"></stop><stop
+                      offset="100%"
+                      stop-color="#0ed7b5"></stop></linearGradient
+                  ></defs
+                ><path
+                  fill="url(#logosTailwindcssIcon0)"
+                  d="M128 0Q76.8 0 64 51.2Q83.2 25.6 108.8 32c9.737 2.434 16.697 9.499 24.401 17.318C145.751 62.057 160.275 76.8 192 76.8q51.2 0 64-51.2q-19.2 25.6-44.8 19.2c-9.737-2.434-16.697-9.499-24.401-17.318C174.249 14.743 159.725 0 128 0M64 76.8q-51.2 0-64 51.2q19.2-25.6 44.8-19.2c9.737 2.434 16.697 9.499 24.401 17.318C81.751 138.857 96.275 153.6 128 153.6q51.2 0 64-51.2q-19.2 25.6-44.8 19.2c-9.737-2.434-16.697-9.499-24.401-17.318C110.249 91.543 95.725 76.8 64 76.8"
+                ></path></svg
+              >
+            </CardTools>
+            <!-- javascript -->
+            <CardTools>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                viewBox="0 0 256 256"
+                ><path fill="#f7df1e" d="M0 0h256v256H0z"></path><path
+                  d="m67.312 213.932l19.59-11.856c3.78 6.701 7.218 12.371 15.465 12.371c7.905 0 12.89-3.092 12.89-15.12v-81.798h24.057v82.138c0 24.917-14.606 36.259-35.916 36.259c-19.245 0-30.416-9.967-36.087-21.996m85.07-2.576l19.588-11.341c5.157 8.421 11.859 14.607 23.715 14.607c9.969 0 16.325-4.984 16.325-11.858c0-8.248-6.53-11.17-17.528-15.98l-6.013-2.58c-17.357-7.387-28.87-16.667-28.87-36.257c0-18.044 13.747-31.792 35.228-31.792c15.294 0 26.292 5.328 34.196 19.247l-18.732 12.03c-4.125-7.389-8.591-10.31-15.465-10.31c-7.046 0-11.514 4.468-11.514 10.31c0 7.217 4.468 10.14 14.778 14.608l6.014 2.577c20.45 8.765 31.963 17.7 31.963 37.804c0 21.654-17.012 33.51-39.867 33.51c-22.339 0-36.774-10.654-43.819-24.574"
+                ></path></svg
+              >
+            </CardTools>
+          </div>
+        </div>
+        <div class="col-span-1 grid grid-cols-1">
           <div class="col-span-1">
             <CardTools>
               <svg
@@ -217,78 +296,8 @@ import Phases from "./Phases.astro";
               >
             </CardTools>
           </div>
-          <div class="col-span-2"></div>
-          <div class="col-span-2">
-            <CardTools>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="48"
-                height="48"
-                viewBox="0 0 256 256"
-                ><g fill="none"
-                  ><rect width="48" height="48" fill="#30382F" rx="60"></rect><g
-                    clip-path="url(#skillIconsFigmaLight0)"
-                    ><path
-                      fill="#0acf83"
-                      d="M94.347 228c18.4 0 33.333-14.933 33.333-33.333v-33.334H94.347c-18.4 0-33.334 14.934-33.334 33.334S75.947 228 94.347 228"
-                    ></path><path
-                      fill="#a259ff"
-                      d="M61.013 128c0-18.4 14.934-33.333 33.334-33.333h33.333v66.666H94.347c-18.4 0-33.334-14.933-33.334-33.333"
-                    ></path><path
-                      fill="#f24e1e"
-                      d="M61.013 61.333C61.013 42.933 75.947 28 94.347 28h33.333v66.667H94.347c-18.4 0-33.334-14.934-33.334-33.334"
-                    ></path><path
-                      fill="#ff7262"
-                      d="M127.68 28h33.333c18.4 0 33.334 14.933 33.334 33.333s-14.934 33.334-33.334 33.334H127.68z"
-                    ></path><path
-                      fill="#1abcfe"
-                      d="M194.347 128c0 18.4-14.934 33.333-33.334 33.333S127.68 146.4 127.68 128s14.933-33.333 33.333-33.333S194.347 109.6 194.347 128"
-                    ></path></g
-                  ><defs
-                    ><clipPath id="skillIconsFigmaLight0"
-                      ><path fill="#fff" d="M61 28h133.36v200H61z"
-                      ></path></clipPath
-                    ></defs
-                  ></g
-                ></svg
-              >
-            </CardTools>
-          </div>
-          <div class="col-span-2 grid grid-cols-1">
-            <CardTools>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="48"
-                height="48"
-                viewBox="0 0 256 256"
-                ><g fill="none"
-                  ><rect width="48" height="48" fill="#30382F" rx="60"></rect><g
-                    clip-path="url(#skillIconsFigmaLight0)"
-                    ><path
-                      fill="#0acf83"
-                      d="M94.347 228c18.4 0 33.333-14.933 33.333-33.333v-33.334H94.347c-18.4 0-33.334 14.934-33.334 33.334S75.947 228 94.347 228"
-                    ></path><path
-                      fill="#a259ff"
-                      d="M61.013 128c0-18.4 14.934-33.333 33.334-33.333h33.333v66.666H94.347c-18.4 0-33.334-14.933-33.334-33.333"
-                    ></path><path
-                      fill="#f24e1e"
-                      d="M61.013 61.333C61.013 42.933 75.947 28 94.347 28h33.333v66.667H94.347c-18.4 0-33.334-14.934-33.334-33.334"
-                    ></path><path
-                      fill="#ff7262"
-                      d="M127.68 28h33.333c18.4 0 33.334 14.933 33.334 33.333s-14.934 33.334-33.334 33.334H127.68z"
-                    ></path><path
-                      fill="#1abcfe"
-                      d="M194.347 128c0 18.4-14.934 33.333-33.334 33.333S127.68 146.4 127.68 128s14.933-33.333 33.333-33.333S194.347 109.6 194.347 128"
-                    ></path></g
-                  ><defs
-                    ><clipPath id="skillIconsFigmaLight0"
-                      ><path fill="#fff" d="M61 28h133.36v200H61z"
-                      ></path></clipPath
-                    ></defs
-                  ></g
-                ></svg
-              >
-            </CardTools>
+
+          <div class="col-span-1">
             <CardTools>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -325,7 +334,6 @@ import Phases from "./Phases.astro";
             </CardTools>
           </div>
         </div>
-        <div></div>
       </div>
     </div>
 
@@ -357,10 +365,24 @@ import Phases from "./Phases.astro";
       <div class="flex flex-col">
         <div class="bg-primary py-11">
           <div class="flex flex-wrap justify-center gap-11">
-            <CardServices
-              titulo="Diseños UX/UI"
-              descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
-            />
+            <div class="relative">
+              <CardServices
+                titulo="Diseños UX/UI"
+                descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+              >
+                <svg
+                  class="absolute top-0 right-0"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="28"
+                  height="28"
+                  viewBox="0 0 28 28"
+                  ><path
+                    fill="currentColor"
+                    d="M6.595 2.084A.75.75 0 0 1 7 2.75c0 1.17.403 1.848.867 2.519q.066.096.138.196C8.448 6.093 9 6.873 9 8a3.5 3.5 0 1 1-7 0c0-.823.084-1.72.649-2.72c.552-.977 1.526-1.986 3.17-3.143a.75.75 0 0 1 .776-.053m2.627 3.39A6 6 0 0 1 18.48 10h-2.729a3.75 3.75 0 0 0-3.75 3.75v2.73a6 6 0 0 1-2.012-.53c-.016.489-.05 1.023-.1 1.583a7.5 7.5 0 0 0 2.112.45v2.267a3.75 3.75 0 0 0 3.75 3.75h6.5a3.75 3.75 0 0 0 3.75-3.75v-6.5a3.75 3.75 0 0 0-3.75-3.75h-2.266A7.5 7.5 0 0 0 8.386 4.229c.09.154.192.308.305.471q.057.085.13.184c.118.166.259.362.401.59m13.03 6.026a2.25 2.25 0 0 1 2.25 2.25v6.5a2.25 2.25 0 0 1-2.25 2.25h-6.5a2.25 2.25 0 0 1-2.25-2.25v-2.316a7.504 7.504 0 0 0 6.433-6.434zm-8.75 4.917V13.75a2.25 2.25 0 0 1 2.25-2.25h2.666a6.005 6.005 0 0 1-4.917 4.917M2 15.287c0-1.003.08-2.248.516-3.274c.833.62 1.866.987 2.984.987a4.98 4.98 0 0 0 2.986-.989c.435 1.027.514 2.274.514 3.276c0 1.663-.264 4.21-.748 6.35c-.24 1.068-.546 2.079-.923 2.84c-.187.38-.412.737-.687 1.01c-.277.274-.66.513-1.14.513s-.862-.239-1.139-.514c-.275-.272-.5-.629-.688-1.008c-.377-.762-.683-1.773-.925-2.84c-.485-2.141-.75-4.688-.75-6.35"
+                  ></path></svg
+                >
+              </CardServices>
+            </div>
             <CardServices
               titulo="Desarrollo Front End"
               descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
@@ -369,7 +391,7 @@ import Phases from "./Phases.astro";
         </div>
         <!-- fases -->
         <div
-          class="bg-primary mx-20 rounded-b-3xl flex flex-wrap justify-center gap-11"
+          class="bg-primary mx-20 py-11 rounded-b-3xl flex flex-wrap justify-center gap-11"
         >
           <Phases
             titulo="Descubrimiento y Planificación"
@@ -387,36 +409,43 @@ import Phases from "./Phases.astro";
             descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
           />
         </div>
-      </div>
-    </div>
-
-    <div class="flex flex-row justify-around gap-5">
-      <div>
-        <h2>hola</h2>
-        <h2>mi king</h2>
-        <h2>leon</h2>
-      </div>
-      <!-- <svg
-        width="117"
-        height="1296"
-        viewBox="0 0 117 1296"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M0.0140136 2.80652C-0.111441 1.43201 0.630546 0.183838 1.67156 0.0181885C2.71257 -0.147461 3.65788 0.832153 3.78335 2.20667L63.3865 718.039C63.4618 718.944 63.6599 719.834 63.9754 720.685L116.368 862.03C117.402 864.82 117.14 867.925 115.653 870.502L37.4908 1005.99C36.8063 1007.18 36.3729 1008.49 36.2174 1009.85L3.77593 1293.87C3.61958 1295.24 2.65262 1296.18 1.61594 1295.97C0.579231 1295.77 -0.134718 1294.49 0.0214299 1293.12L32.6085 1007.84C32.7639 1006.47 33.1973 1005.16 33.8819 1003.97L111.271 869.824C112.762 867.24 113.021 864.125 111.978 861.33L59.4842 720.699C59.163 719.839 58.9619 718.938 58.8866 718.023L0.0140136 2.80652Z"
-          fill="#30382F"></path>
-      </svg> -->
-      <!-- Vista mis logros-->
-      <div class="flex flex-col gap-5">
-        <div>Texto Biblico</div>
-        <img src="" alt="" />
-        <p class="max-w-80">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod,
-          justo eget scelerisque sollicitudin, odio turpis lacinia massa, non
-          tincidunt neque sem vel neque. Praesent eget purus vel massa consequat
-          volutpat.
-        </p>
+        <!-- Pequeña Biografia-->
+        <div class="flex flex-row justify-around items-center gap-5">
+          <div class="font-semibold">
+            <h2>Imaginas</h2>
+            <h2>Construyes</h2>
+            <h2>Innovas</h2>
+          </div>
+          <svg
+            width="117"
+            height="700"
+            viewBox="0 0 117 1296"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.0140136 2.80652C-0.111441 1.43201 0.630546 0.183838 1.67156 0.0181885C2.71257 -0.147461 3.65788 0.832153 3.78335 2.20667L63.3865 718.039C63.4618 718.944 63.6599 719.834 63.9754 720.685L116.368 862.03C117.402 864.82 117.14 867.925 115.653 870.502L37.4908 1005.99C36.8063 1007.18 36.3729 1008.49 36.2174 1009.85L3.77593 1293.87C3.61958 1295.24 2.65262 1296.18 1.61594 1295.97C0.579231 1295.77 -0.134718 1294.49 0.0214299 1293.12L32.6085 1007.84C32.7639 1006.47 33.1973 1005.16 33.8819 1003.97L111.271 869.824C112.762 867.24 113.021 864.125 111.978 861.33L59.4842 720.699C59.163 719.839 58.9619 718.938 58.8866 718.023L0.0140136 2.80652Z"
+              fill="#30382F"></path>
+          </svg>
+          <!-- Vista mis logros-->
+          <div class="flex flex-col gap-5">
+            <div>Texto Biblico</div>
+            <div class="relative max-w-lg">
+              <img class="relative rotate-2 rounded-[40px] z-10" src="/ImageBiography.jpeg" alt="" />
+              <img
+                class="opacity-65 absolute top-3 right-5 rounded-[40px] z-0"
+                src="/ImageBiography.jpeg"
+                alt=""
+              />
+            </div>
+            <p class="max-w-80">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              euismod, justo eget scelerisque sollicitudin, odio turpis lacinia
+              massa, non tincidunt neque sem vel neque. Praesent eget purus vel
+              massa consequat volutpat.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </main>
