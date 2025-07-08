@@ -7,7 +7,8 @@ interface Props {
 const { titulo, descripcion } = Astro.props;
 ---
 
-<div class="flex flex-col border-2 border-secondary text-secondary p-5 justify-center max-w-80">
+<div class="relative flex flex-col border-2 border-secondary text-secondary p-5 justify-center max-w-80">
   <h2>{titulo}</h2>
   <p>{descripcion}</p>
+  <slot />
 </div>
