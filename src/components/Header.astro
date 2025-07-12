@@ -5,9 +5,9 @@
 <header class="">
   <nav
   id="navbar"
-    class="flex fixed top-0 left-0 right-0 bg-transparent z-50 flex-row rounded-b-2xl max-w-[1204px] mx-auto mt-6 shadow-md px-12 py-6 gap-16 font-semibold text-3xl items-end justify-between"
+    class="flex fixed top-0 left-0 right-0 bg-transparent z-50 flex-row rounded-b-2xl max-w-[1204px] mx-auto mt-6 shadow-md px-12 py-6 gap-16 font-semibold text-xl text-primary items-end justify-between"
   >
-    <div class="rounded-full w-5 h-5 bg-black"></div>
+    <div class="self-center rounded-full w-4 h-4 bg-primary"></div>
     <div id="nav-links" class="flex flex-row gap-16">
       <a href="#">Inicio</a>
       <a href="#">Herramientas</a>
@@ -31,17 +31,15 @@ gsap.to("#navbar", {
     end: "+=200",
     scrub: 1,
   },
-  padding: "0.5rem 3rem", // achica padding (py-2 px-12 aprox)
-  backgroundColor: "rgba(255, 255, 255, 0.25)",  // como bg-white/25
+  padding: "0.5rem 3rem", 
+  backgroundColor: "rgba(255, 255, 255, 0.25)", 
   backdropFilter: "blur(12px)",  
-  webkitBackdropFilter: "blur(12px)",           // para Safari
+  webkitBackdropFilter: "blur(12px)",           
   borderRadius: "2rem", 
-  maxWidth: "800px",              // como backdrop-blur-md
-  // borderBottom: "1px solid rgba(255, 255, 255, 0.3)", // (opcional) para efecto de borde de vidrio // efecto de vidrio real
+  maxWidth: "800px",              
   ease: "power1.out",
 });
 
-// Reduce el tamaño del texto
 gsap.to("#nav-links a", {
   scrollTrigger: {
     trigger: "body",
@@ -49,7 +47,7 @@ gsap.to("#nav-links a", {
     end: "+=200",
     scrub: 1,
   },
-  fontSize: "1rem", // text-base
+  fontSize: "1rem", 
 });
 
 </script>
