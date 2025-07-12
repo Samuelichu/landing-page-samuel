@@ -6,17 +6,14 @@ import Phases from "./Phases.astro";
 ---
 
 <div class="">
-  <main class="flex flex-col gap-52 pt-32">
+  <main class="flex flex-col gap-52 pt-40 overflow-x-hidden">
     <!-- Vista Inicio -->
     <div class="flex flex- justify-center gap-8">
       <div class="flex flex-col justify-between max-w-lg">
         <div class="flex flex-col gap-4 items-center">
-          <h1 class="font-medium text-8xl">Software <br /> Developer .</h1>
-          <p class="text-2xl font-medium max-w-md">
-            Hi! I’m a curious mind with a passion for technology, storytelling,
-            and creative problem-solving. I thrive when I’m learning something
-            new—whether it’s a programming language, a design tool, or just how
-            to make the perfect cup of coffee.
+          <h1 class="font-medium text-8xl">Software <br /> Developer</h1>
+          <p class="text-xl max-w-sm">
+            Mi nombre es Samuel Chávez, soy egresado de Ingeniería Informática y me apasiona todo lo relacionado al desarrollo web. Esta página es una pequeña muestra de lo que he aprendido, construido y sigo explorando. Aquí encontrarás algunos de los proyectos en los que he participado y los servicios que ofrezco como desarrollador. Sigo creciendo paso a paso, y si algo de lo que ves aquí conecta contigo, ya habrá valido la pena compartirlo.
           </p>
         </div>
         <div class="flex flex-col gap-4 self-end font-semibold text-2xl">
@@ -229,7 +226,7 @@ import Phases from "./Phases.astro";
           </div>
           <div class="col-span-2 flex flex-col gap-2">
             <!-- tailwind -->
-            <div class=" h-16 max-w-32">
+            <div class="h-16 max-w-32">
               <CardTools>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -257,7 +254,6 @@ import Phases from "./Phases.astro";
             <!-- javascript -->
 
             <div class="h-40 max-w-44">
-              
               <CardTools>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -271,7 +267,8 @@ import Phases from "./Phases.astro";
               </CardTools>
             </div>
           </div>
-          <div class="absolute right-24 -top-20 rotate-12">
+          <!-- Astro -->
+          <div class="absolute right-24 -top-20 rotate-12" id="nave">
             <CardTools>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -291,8 +288,9 @@ import Phases from "./Phases.astro";
             </CardTools>
           </div>
         </div>
-        <div class="grid grid-rows-3 ">
-          <div class="row-span-2">
+        <div class="flex flex-col">
+          <div class="h-60 -rotate-12">
+            <!-- Angular -->
             <CardTools>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -341,7 +339,8 @@ import Phases from "./Phases.astro";
             </CardTools>
           </div>
 
-          <div class="row-span-1">
+          <div class="">
+            <!-- TypeScript -->
             <CardTools>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -383,60 +382,69 @@ import Phases from "./Phases.astro";
     </div>
 
     <!-- Vista mis servicios-->
-    <div class="flex flex-col gap-16 h-max">
+    <div class="flex flex-col gap-16 h-max" >
       <h2 class="text-primary font-semibold text-4xl mx-20">Mis Servicios</h2>
 
       <!--servicios-->
       <div class="flex flex-col">
-        <div class="bg-primary py-11">
-          <div class="flex flex-wrap justify-center gap-11">
-            <div class="relative">
-              <CardServices
-                titulo="Diseños UX/UI"
-                descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
-              >
-                <svg
-                  class="absolute top-0 right-0"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="28"
-                  height="28"
-                  viewBox="0 0 28 28"
-                  ><path
-                    fill="currentColor"
-                    d="M6.595 2.084A.75.75 0 0 1 7 2.75c0 1.17.403 1.848.867 2.519q.066.096.138.196C8.448 6.093 9 6.873 9 8a3.5 3.5 0 1 1-7 0c0-.823.084-1.72.649-2.72c.552-.977 1.526-1.986 3.17-3.143a.75.75 0 0 1 .776-.053m2.627 3.39A6 6 0 0 1 18.48 10h-2.729a3.75 3.75 0 0 0-3.75 3.75v2.73a6 6 0 0 1-2.012-.53c-.016.489-.05 1.023-.1 1.583a7.5 7.5 0 0 0 2.112.45v2.267a3.75 3.75 0 0 0 3.75 3.75h6.5a3.75 3.75 0 0 0 3.75-3.75v-6.5a3.75 3.75 0 0 0-3.75-3.75h-2.266A7.5 7.5 0 0 0 8.386 4.229c.09.154.192.308.305.471q.057.085.13.184c.118.166.259.362.401.59m13.03 6.026a2.25 2.25 0 0 1 2.25 2.25v6.5a2.25 2.25 0 0 1-2.25 2.25h-6.5a2.25 2.25 0 0 1-2.25-2.25v-2.316a7.504 7.504 0 0 0 6.433-6.434zm-8.75 4.917V13.75a2.25 2.25 0 0 1 2.25-2.25h2.666a6.005 6.005 0 0 1-4.917 4.917M2 15.287c0-1.003.08-2.248.516-3.274c.833.62 1.866.987 2.984.987a4.98 4.98 0 0 0 2.986-.989c.435 1.027.514 2.274.514 3.276c0 1.663-.264 4.21-.748 6.35c-.24 1.068-.546 2.079-.923 2.84c-.187.38-.412.737-.687 1.01c-.277.274-.66.513-1.14.513s-.862-.239-1.139-.514c-.275-.272-.5-.629-.688-1.008c-.377-.762-.683-1.773-.925-2.84c-.485-2.141-.75-4.688-.75-6.35"
-                  ></path></svg
-                >
-              </CardServices>
-            </div>
+        <div class="bg-primary py-16" >
+          <div class="flex flex-col justify-center gap-16 px-5">
             <CardServices
-              titulo="Desarrollo Front End"
-              descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+              titulo1="Diseños"
+              titulo2="UX/UI"
+              descripcion="Me encargo de dar forma a tus ideas con prototipos interactivos hechos en Figma. Esto te permite ver cómo se vería y funcionaría tu producto antes de desarrollarlo, lo que ayuda a tener una mejor visión del proyecto, hacer ajustes a tiempo y asegurarnos de que todo esté alineado con lo que buscas. "
+            />
+
+            <CardServices
+              titulo1="Desarrollo"
+              titulo2="Front End"
+              descripcion="Me encargo de construir la parte visual y funcional de tu sitio o aplicación web, asegurando que todo se vea bien y funcione como esperas. Uso tecnologías modernas para crear interfaces rápidas, responsivas y pensadas en la experiencia del usuario, adaptándome siempre a lo que tu proyecto necesita."
             />
           </div>
         </div>
+
         <!-- fases -->
-        <div
-          class="bg-primary mx-20 py-11 rounded-b-3xl flex flex-wrap justify-center gap-11"
-        >
-          <Phases
-            titulo="Descubrimiento y Planificación"
-            number="01"
-            descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-          />
-          <Phases
-            titulo="Desarrollo"
-            number="02"
-            descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-          />
-          <Phases
-            titulo="Despliegue y Entrega"
-            number="03"
-            descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-          />
+        <div class="bg-primary rounded-b-3xl self-center">
+          <div class="">
+            <!-- Línea de tiempo (horizontal) -->
+            <div class="relative flex justify-center items-center h-2 bg-white">
+              <!-- Puntos de la línea -->
+              <div
+                class="absolute left-1/4 -top-2 w-6 h-6 bg-tertiary rounded-full"
+              >
+              </div>
+              <div
+                class="absolute left-1/2 -top-2 w-6 h-6 bg-tertiary rounded-full"
+              >
+              </div>
+              <div
+                class="absolute right-1/4 -top-2 w-6 h-6 bg-tertiary rounded-full"
+              >
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-row justify-around gap-8 p-11">
+            <Phases
+              titulo="Descubrimiento y Planificación"
+              number="01"
+              descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            />
+            <Phases
+              titulo="Desarrollo"
+              number="02"
+              descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            />
+            <Phases
+              titulo="Despliegue y Entrega"
+              number="03"
+              descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            />
+          </div>
         </div>
         <!-- Pequeña Biografia-->
         <div class="flex flex-row justify-around items-center gap-5">
-          <div class="font-semibold">
+          <div class="flex flex-col gap-10 font-bold text-4xl text-primary">
             <h2>Imaginas</h2>
             <h2>Construyes</h2>
             <h2>Innovas</h2>
@@ -453,7 +461,7 @@ import Phases from "./Phases.astro";
               fill="#30382F"></path>
           </svg>
           <!-- Vista mis logros-->
-          <div class="flex flex-col gap-5">
+          <div class="flex flex-col gap-10">
             <div>Texto Biblico</div>
             <div class="relative max-w-lg">
               <img
@@ -467,11 +475,10 @@ import Phases from "./Phases.astro";
                 alt=""
               />
             </div>
-            <p class="max-w-80">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              euismod, justo eget scelerisque sollicitudin, odio turpis lacinia
-              massa, non tincidunt neque sem vel neque. Praesent eget purus vel
-              massa consequat volutpat.
+            <p class="max-w-md">
+              Como todos, <span class="font-bold">tengo un sueño.</span> <br> Esta página es parte de ese sueño: un
+              espacio donde comparto lo que voy aprendiendo, creando y soñando.
+              Gracias por tu apoyo :)
             </p>
           </div>
         </div>
@@ -495,3 +502,16 @@ gsap.registerPlugin(ScrollTrigger)
 	x: 500
 });
 </script> -->
+
+<script>
+  import gsap from "gsap";
+
+  gsap.to("#nave", {
+    y: -30, // se desplaza hacia arriba
+    duration: 2, // tarda 2 segundos en subir
+    repeat: -1, // infinito
+    yoyo: true, // vuelve a su posición original
+    ease: "power1.inOut", // movimiento suave
+  });
+
+</script>
