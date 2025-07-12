@@ -11,7 +11,10 @@ export default {
           DEFAULT: '#30382F', // Verde principal
         },
         secondary: {
-          DEFAULT: '#FFFBDf', // Blanco principal
+          DEFAULT: '#FBFBDf', // Blanco principal
+        },
+        tertiary: {
+          DEFAULT: '#AFC87E', // Verde secundario
         }
       }
     },
