@@ -5,20 +5,34 @@ import CardTools from "./CardTools.astro";
 import Phases from "./Phases.astro";
 ---
 
-<div class="">
-  <main class="flex flex-col gap-52 pt-40 overflow-x-hidden">
+<div class="w-full">
+  <main class="flex flex-col gap-20 md:gap-52 pt-20 md:pt-40 overflow-x-hidden">
     <!-- Vista Inicio -->
-    <div class="flex flex- justify-center gap-8">
-      <div class="flex flex-col justify-between max-w-lg">
-        <div class="flex flex-col gap-4 items-center">
-          <h1 class="font-medium text-8xl">Software <br /> Developer</h1>
-          <p class="text-xl max-w-sm">
-            Mi nombre es Samuel Chávez, soy egresado de Ingeniería Informática y me apasiona todo lo relacionado al desarrollo web. Esta página es una pequeña muestra de lo que he aprendido, construido y sigo explorando. Aquí encontrarás algunos de los proyectos en los que he participado y los servicios que ofrezco como desarrollador. Sigo creciendo paso a paso, y si algo de lo que ves aquí conecta contigo, ya habrá valido la pena compartirlo.
+    <div class="flex flex-col lg:flex-row justify-center gap-8">
+      <div class="flex flex-col justify-between max-w-full lg:max-w-lg">
+        <div class="flex flex-col gap-4 items-center lg:items-start">
+          <h1
+            class="font-medium text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-center lg:text-left"
+          >
+            Software <br class="hidden lg:block" /> Developer
+          </h1>
+          <p
+            class="text-base px-8 sm:text-lg md:text-xl max-w-full lg:max-w-md"
+          >
+            Mi nombre es Samuel Chávez, soy egresado de Ingeniería Informática y
+            me apasiona todo lo relacionado al desarrollo web. Esta página es
+            una pequeña muestra de lo que he aprendido, construido y sigo
+            explorando. Aquí encontrarás algunos de los proyectos en los que he
+            participado y los servicios que ofrezco como desarrollador. Sigo
+            creciendo paso a paso, y si algo de lo que ves aquí conecta contigo,
+            ya habrá valido la pena compartirlo.
           </p>
         </div>
-        <div class="flex flex-col gap-4 self-end font-semibold text-2xl">
+        <div
+          class="flex flex-col gap-4 self-center lg:self-end font-semibold text-xl lg:text-2xl text-center lg:text-right"
+        >
           <h3>Encuéntrame en :</h3>
-          <div class="flex flex-row gap-4 self-end">
+          <div class="flex flex-row gap-4 self-center lg:self-end">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="48"
@@ -109,21 +123,27 @@ import Phases from "./Phases.astro";
           </div>
         </div>
       </div>
-      <figure class="object-contain">
-        <img class="w-[550px] rounded-3xl" src="/AiSamuel2.png" alt="" />
+      <figure class="object-contain w-full max-w-[550px]">
+        <img
+          class="w-full h-auto rounded-3xl"
+          src="/AiSamuel2.png"
+          alt="Samuel Chávez - Desarrollador de Software"
+        />
       </figure>
     </div>
 
     <!-- Seccion Frameworks y Herramientas -->
     <div
-      class="h-screen flex flex-col justify-around bg-primary rounded-bl-[136px] rounded-tr-[136px]"
+      class="h-screen flex flex-col justify-around gap-8 bg-primary rounded-bl-[80px] md:rounded-bl-[136px] rounded-tr-[80px] md:rounded-tr-[136px] px-4 md:px-0"
     >
       <h3 class="text-secondary font-medium text-5xl px-20">
         Frameworks y herramientas
       </h3>
 
       <!-- Herramientas -->
-      <div class="flex flex-row gap-2 justify-end px-10">
+      <div
+        class="flex flex-row flex-wrap justify-center md:justify-end gap-2 px-4 md:px-10"
+      >
         <!-- figma -->
         <CardTools>
           <svg
@@ -288,8 +308,8 @@ import Phases from "./Phases.astro";
             </CardTools>
           </div>
         </div>
-        <div class="flex flex-col">
-          <div class="h-60 -rotate-12">
+        <div class="relative flex flex-col items-center justify-end">
+          <div class="h-60 absolute -rotate-[0.3rad] right-9 bottom-16">
             <!-- Angular -->
             <CardTools>
               <svg
@@ -339,13 +359,13 @@ import Phases from "./Phases.astro";
             </CardTools>
           </div>
 
-          <div class="">
+          <div class="w-16 h-min -translate-x-4">
             <!-- TypeScript -->
-            <CardTools>
+            <CardTools noPadding>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="48"
-                height="48"
+                width="36"
+                height="40"
                 viewBox="0 0 256 256"
                 ><g fill="none"
                   ><rect width="256" height="256" fill="#007acc" rx="60"
@@ -363,7 +383,9 @@ import Phases from "./Phases.astro";
 
     <!-- Vista Proyectos y contribuciones -->
 
-    <div class="flex flex-col gap-24 h-screen">
+    <div
+      class="flex flex-col gap-12 md:gap-24 py-16 md:py-0 md:h-screen justify-center"
+    >
       <h2 class="text-primary font-semibold text-4xl mx-20">
         Proyectos y Colaboraciones
       </h2>
@@ -382,12 +404,16 @@ import Phases from "./Phases.astro";
     </div>
 
     <!-- Vista mis servicios-->
-    <div class="flex flex-col gap-16 h-max" >
-      <h2 class="text-primary font-semibold text-4xl mx-20">Mis Servicios</h2>
+    <div class="flex flex-col gap-8 md:gap-16">
+      <h2
+        class="text-primary font-semibold text-3xl md:text-4xl text-center md:text-left px-4 md:mx-20"
+      >
+        Mis Servicios
+      </h2>
 
       <!--servicios-->
       <div class="flex flex-col">
-        <div class="bg-primary py-16" >
+        <div class="bg-primary py-16">
           <div class="flex flex-col justify-center gap-16 px-5">
             <CardServices
               titulo1="Diseños"
@@ -404,52 +430,55 @@ import Phases from "./Phases.astro";
         </div>
 
         <!-- fases -->
-        <div class="bg-primary rounded-b-3xl self-center">
+        <div class="bg-primary md:rounded-b-3xl self-center">
           <div class="">
             <!-- Línea de tiempo (horizontal) -->
-            <div class="relative flex justify-center items-center h-2 bg-white">
+            <div
+              class="relative flex justify-center items-center h-2 bg-tertiary md:bg-white"
+            >
               <!-- Puntos de la línea -->
               <div
-                class="absolute left-1/4 -top-2 w-6 h-6 bg-tertiary rounded-full"
+                class="hidden md:block absolute left-1/4 -top-2 w-6 h-6 bg-tertiary shadow-black/50 shadow-xl rounded-full"
               >
               </div>
               <div
-                class="absolute left-1/2 -top-2 w-6 h-6 bg-tertiary rounded-full"
+                class="hidden md:block absolute left-1/2 -top-2 w-6 h-6 bg-tertiary shadow-black/50 shadow-xl rounded-full"
               >
               </div>
               <div
-                class="absolute right-1/4 -top-2 w-6 h-6 bg-tertiary rounded-full"
+                class="hidden md:block absolute right-1/4 -top-2 w-6 h-6 bg-tertiary shadow-black/50 shadow-xl rounded-full"
               >
               </div>
             </div>
           </div>
 
-          <div class="flex flex-row justify-around gap-8 p-11">
+          <div class="flex py-11 flex-wrap justify-around gap-8 md:px-11">
             <Phases
               titulo="Descubrimiento y Planificación"
               number="01"
-              descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+              descripcion="Analizo lo que necesitas, definimos objetivos y organizamos cómo vamos a trabajar."
             />
             <Phases
               titulo="Desarrollo"
               number="02"
-              descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+              descripcion="Damos forma a la idea: ya sea diseñando la interfaz o construyendo el sitio en código."
             />
             <Phases
               titulo="Despliegue y Entrega"
               number="03"
-              descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+              descripcion="Revisamos todo, lo dejamos listo y te lo entregamos para usarlo o seguir iterando."
             />
           </div>
         </div>
         <!-- Pequeña Biografia-->
-        <div class="flex flex-row justify-around items-center gap-5">
-          <div class="flex flex-col gap-10 font-bold text-4xl text-primary">
-            <h2>Imaginas</h2>
-            <h2>Construyes</h2>
-            <h2>Innovas</h2>
+        <div class="flex flex-col md:flex-row justify-around items-center gap-5">
+          <div class="frase flex flex-row md:flex-col gap-10 font-bold text-md py-11 md:py-11 md:text-4xl text-primary drop-shadow-md md:drop-shadow-none ">
+            <h2 class="bg-tertiary px-3 py-1 rounded-full md:bg-transparent md:px-0 md:py-0 md:rounded-none">imaginas<span class="md:text-2xl text-md">.</span></h2>
+            <h2 class="bg-tertiary px-3 py-1 rounded-full md:bg-transparent md:px-0 md:py-0 md:rounded-none">construyes<span class="md:text-2xl text-md">.</span></h2>
+            <h2 class="bg-tertiary px-3 py-1 rounded-full md:bg-transparent md:px-0 md:py-0 md:rounded-none">innovas<span class="md:text-2xl text-md">.</span></h2>
           </div>
           <svg
+            class="hidden md:block"
             width="117"
             height="700"
             viewBox="0 0 117 1296"
@@ -461,9 +490,11 @@ import Phases from "./Phases.astro";
               fill="#30382F"></path>
           </svg>
           <!-- Vista mis logros-->
-          <div class="flex flex-col gap-10">
-            <div>Texto Biblico</div>
-            <div class="relative max-w-lg">
+          <div class="flex flex-col gap-4 md:gap-10 px-10">
+            <div class="order-2 md:order-1 text-normal md:text-2xl font-bold">Salmo 37 : <span>5</span></div>
+            <div
+              class="order-1 md:order-2 pb-5 md:pb-0 relative max-w-lg cursor-pointer transition-all duration-300 ease-in-out hover:scale-105"
+            >
               <img
                 class="relative rotate-2 rounded-[40px] z-10"
                 src="/ImageBiography.jpeg"
@@ -475,33 +506,19 @@ import Phases from "./Phases.astro";
                 alt=""
               />
             </div>
-            <p class="max-w-md">
-              Como todos, <span class="font-bold">tengo un sueño.</span> <br> Esta página es parte de ese sueño: un
-              espacio donde comparto lo que voy aprendiendo, creando y soñando.
-              Gracias por tu apoyo :)
-            </p>
+            <div class="order-3">
+              <p class="max-w-md">
+                Como todos, <span class="font-bold">tengo un sueño.</span>
+                <br /> Esta página es parte de ese sueño: un espacio donde comparto
+                lo que voy aprendiendo, creando y soñando. Gracias por tu apoyo :)
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </main>
 </div>
-
-<!-- <script>
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger) 
-
-  gsap.to(".box", { 
-    x: 10,
-    duration: 1
-  });
-
-  gsap.to('.box', {
-	scrollTrigger: '.box', // start the animation when ".box" enters the viewport (once)
-	x: 500
-});
-</script> -->
 
 <script>
   import gsap from "gsap";
@@ -514,4 +531,22 @@ gsap.registerPlugin(ScrollTrigger)
     ease: "power1.inOut", // movimiento suave
   });
 
+  gsap.fromTo(
+  ".frase h2",
+  { y: 50, opacity: 0, scale: 0.8 },
+  {
+    y: 0,
+    opacity: 1,
+    scale: 1,
+    ease: "power3.out",
+    stagger: 0.4,
+    duration: 0.8,
+    scrollTrigger: {
+      trigger: ".frase",
+      start: "top 50%",   // cuando el top del div esté al 80% de la ventana
+      toggleActions: "play reverse play reverse", 
+
+    }
+  }
+);
 </script>
