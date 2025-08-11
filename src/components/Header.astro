@@ -5,14 +5,17 @@
 <header class="">
   <nav
   id="navbar"
-    class="flex fixed top-0 left-0 right-0 bg-transparent z-50 flex-row rounded-b-2xl max-w-[1204px] mx-auto mt-6 shadow-md px-12 py-6 gap-16 font-semibold text-xl text-primary items-end justify-between"
+    class="flex bg-white lg:fixed lg:top-0 lg:left-0 lg:right-0 lg:bg-transparent z-50 flex-row rounded-b-2xl max-w-[1204px] mx-auto md:mt-6 shadow-md px-12 py-6 gap-16 font-semibold text-xl text-primary items-end justify-between"
   >
     <div class="self-center rounded-full w-4 h-4 bg-primary"></div>
-    <div id="nav-links" class="flex flex-row gap-16">
-      <a href="#">Inicio</a>
-      <a href="#">Herramientas</a>
-      <a href="#">Proyectos</a>
-      <a href="#">Contacto</a>
+    <div
+      id="nav-links"
+      class="flex flex-row gap-10 -mx-12 px-12 overflow-x-auto whitespace-nowrap snap-x snap-mandatory lg:overflow-visible lg:whitespace-normal lg:snap-none [scrollbar-width:none] [-ms-overflow-style:'none'] [&::-webkit-scrollbar]:hidden"
+    >
+      <a href="#" class="shrink-0 snap-start">Inicio</a>
+      <a href="#" class="shrink-0 snap-start">Herramientas</a>
+      <a href="#" class="shrink-0 snap-start">Proyectos</a>
+      <a href="#" class="shrink-0 snap-start">Contacto</a>
     </div>
   </nav>
 </header>

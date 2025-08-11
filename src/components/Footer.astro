@@ -2,27 +2,33 @@
 import InfoContact from "./InfoContact.astro";
 ---
 
-<div class="pb-5">
+<div class="pb-5 pt-5 md:pt-0">
   <div
-    class="relative flex flex-col gap-4 mx-11 px-12 pt-12 pb-24 bg-primary rounded-t-xl rounded-br-xl overflow-hidden"
+    class="relative flex flex-col gap-4 md:mx-11 md:px-12 pt-12 pb-24 bg-primary md:rounded-t-xl md:rounded-br-xl overflow-hidden"
   >
     <!-- Seccion principal -->
     <div class="flex flex-col gap-5">
-      <div class="flex flex-col gap-2">
-        <p class="text-secondary font-medium text-5xl max-w-3xl">
-          ¿Estas listo para transformar tu idea en realidad?
+      <div class="flex flex-col gap-2 max-w-xs mx-auto md:mx-0 md:max-w-none">
+        <p class="text-secondary font-medium text-xl md:text-5xl md:max-w-3xl">
+          ¿Estas listo para transformar tu idea en realidad? <span class="inline md:hidden font-bold text-lg">Conversemos !</span>
         </p>
-        <div class="flex flex-row gap-40 items-center justify-between pr-11">
-          <p class="text-secondary text-5xl font-medium">CONVERSEMOS!</p>
-          <button class="relative inline-block group px-12 py-4 text-2xl font-normal text-white rounded-2xl">
-           
-            <span class="absolute inset-0 w-full h-full transition duration-300 ease-out transform translate-x-1 translate-y-1 bg-secondary group-hover:translate-x-0 group-hover:translate-y-0 rounded-2xl"></span>
-          
-       
-            <span class="absolute inset-0 w-full h-full border-2 border-secondary bg-tertiary group-hover:bg-secondary/90 rounded-2xl transition duration-300"></span>
-          
-      
-            <span class="relative text-secondary group-hover:text-primary transition duration-300">Estoy listo</span>
+        <div class="flex flex-row gap-40 items-center justify-center md:justify-between md:pr-11">
+          <p class="hidden md:block text-secondary text-5xl font-bold mx-9">Conversemos ! <span class="text-4xl">:D</span></p>
+          <button
+            class="relative inline-block group px-12 py-4 text-2xl font-normal text-white rounded-2xl"
+          >
+            <span
+              class="absolute inset-0 w-full h-full transition duration-300 ease-out transform translate-x-1 translate-y-1 bg-secondary group-hover:translate-x-0 group-hover:translate-y-0 rounded-2xl"
+            ></span>
+
+            <span
+              class="absolute inset-0 w-full h-full border-2 border-secondary bg-tertiary group-hover:bg-secondary/90 rounded-2xl transition duration-300"
+            ></span>
+
+            <span
+              class="relative text-secondary group-hover:text-primary transition duration-300"
+              >Estoy listo</span
+            >
           </button>
         </div>
       </div>
@@ -34,25 +40,49 @@ import InfoContact from "./InfoContact.astro";
           descripcion="chavezzsam@gmail.com"
         />
         <InfoContact titulo="Telefono" descripcion="+51 939390382" />
-        <svg
-          class="absolute -right-4 -rotate-12"
-          xmlns="http://www.w3.org/2000/svg"
-          width="100"
-          height="110"
-          viewBox="0 0 50 50"
-          ><g fill="none" stroke="#FFFBDf" stroke-width="4"
-            ><path
-              stroke-linejoin="round"
-              d="M3 24a21 21 0 1 0 42 0a21 21 0 1 0-42 0"></path><path
-              stroke-linejoin="round"
-              d="M15 24a9 21 0 1 1 18 0a9 21 0 1 1-18 0"></path><path
-              stroke-linecap="round"
-              d="M4.5 31h39m-39-14h39"></path></g
-          ></svg
-        >
       </div>
     </div>
 
-      
+    <svg
+    class="absolute -right-6 -bottom-9 -rotate-[18deg]"
+    xmlns="http://www.w3.org/2000/svg"
+    width="130"
+    height="130"
+    viewBox="0 0 50 50"
+    ><g fill="none" stroke="#FFFBDf" stroke-width="4"
+      ><path
+        stroke-linejoin="round"
+        d="M3 24a21 21 0 1 0 42 0a21 21 0 1 0-42 0"></path><path
+        stroke-linejoin="round"
+        d="M15 24a9 21 0 1 1 18 0a9 21 0 1 1-18 0"></path><path
+        stroke-linecap="round"
+        d="M4.5 31h39m-39-14h39"></path></g
+    ></svg
+  >
+
+    <div class="absolute flex flex-row items-end -bottom-2 left-28 gap-5">
+      <svg
+        class="rotate-90"
+        xmlns="http://www.w3.org/2000/svg"
+        width="68"
+        height="68"
+        viewBox="0 0 16 16"
+        ><path
+          fill="#FFFBDf"
+          d="M0 1a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm9 0a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1zm0 9a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1z"
+        ></path></svg
+      >
+      <svg
+        class=""
+        xmlns="http://www.w3.org/2000/svg"
+        width="48"
+        height="48"
+        viewBox="0 0 16 16"
+        ><path
+          fill="#FFFBDf"
+          d="M0 1a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm9 0a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1zm0 9a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1z"
+        ></path></svg
+      >
+    </div>
   </div>
 </div>
