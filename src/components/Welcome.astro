@@ -3,127 +3,135 @@ import CardProyects from "./CardProyects.astro";
 import CardServices from "./CardServices.astro";
 import CardTools from "./CardTools.astro";
 import Phases from "./Phases.astro";
+
+const allPosts = await Astro.glob("../content/*.md");
+
+const toolSvgs: Record<string, string> = {
+  figma: `
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 256 256"><g fill="none"><rect width="48" height="48" fill="#30382F" rx="60"></rect><g clip-path="url(#skillIconsFigmaLight0)"><path fill="#0acf83" d="M94.347 228c18.4 0 33.333-14.933 33.333-33.333v-33.334H94.347c-18.4 0-33.334 14.934-33.334 33.334S75.947 228 94.347 228"></path><path fill="#a259ff" d="M61.013 128c0-18.4 14.934-33.333 33.334-33.333h33.333v66.666H94.347c-18.4 0-33.334-14.933-33.334-33.333"></path><path fill="#f24e1e" d="M61.013 61.333C61.013 42.933 75.947 28 94.347 28h33.333v66.667H94.347c-18.4 0-33.334-14.934-33.334-33.334"></path><path fill="#ff7262" d="M127.68 28h33.333c18.4 0 33.334 14.933 33.334 33.333s-14.934 33.334-33.334 33.334H127.68z"></path><path fill="#1abcfe" d="M194.347 128c0 18.4-14.934 33.333-33.334 33.333S127.68 146.4 127.68 128s14.933-33.333 33.333-33.333S194.347 109.6 194.347 128"></path></g><defs><clipPath id="skillIconsFigmaLight0"><path fill="#fff" d="M61 28h133.36v200H61z"></path></clipPath></defs></g></svg>
+  `,
+  html: `
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.85298 40.8015L5.48248 3H42.5175L39.1425 40.7955L23.9775 45L8.85298 40.8015Z" fill="#E44F26"></path><path d="M24 41.787L36.255 38.3895L39.138 6.09151H24V41.787Z" fill="#F1662A"></path><path d="M24 20.1105H17.865L17.442 15.363H24V10.7265H12.375L12.486 11.9715L13.6245 24.747H24V20.1105ZM24 32.151L23.979 32.157L18.816 30.7635L18.486 27.066H13.8315L14.481 34.344L23.979 36.981L24 36.975V32.151Z" fill="#EBEBEB"></path><path d="M23.9835 20.1105V24.747H29.6925L29.1555 30.7605L23.9835 32.1555V36.9795L33.489 34.344L33.558 33.561L34.647 21.3555L34.761 20.1105H23.9835ZM23.9835 10.7265V15.363H35.1825L35.2755 14.322L35.487 11.9715L35.598 10.7265H23.9835Z" fill="white"></path></svg>
+  `,
+  css: `
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 128 128"><path fill="#1572b6" d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754l-45.243 12.543z"></path><path fill="#33a9dc" d="m64.001 117.062l36.559-10.136l8.601-96.354h-45.16z"></path><path fill="#fff" d="M64.001 51.429h18.302l1.264-14.163H64.001V23.435h34.682l-.332 3.711l-3.4 38.114h-30.95z"></path><path fill="#ebebeb" d="m64.083 87.349l-.061.018l-15.403-4.159l-.985-11.031H33.752l1.937 21.717l28.331 7.863l.063-.018z"></path><path fill="#fff" d="m81.127 64.675l-1.666 18.522l-15.426 4.164v14.39l28.354-7.858l.208-2.337l2.406-26.881z"></path><path fill="#ebebeb" d="M64.048 23.435v13.831H30.64l-.277-3.108l-.63-7.012l-.331-3.711zm-.047 27.996v13.831H48.792l-.277-3.108l-.631-7.012l-.33-3.711z"></path></svg>
+  `,
+  tailwind: `
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 154"><defs><linearGradient id="logosTailwindcssIcon0" x1="-2.778%" x2="100%" y1="32%" y2="67.556%"><stop offset="0%" stop-color="#2298bd"></stop><stop offset="100%" stop-color="#0ed7b5"></stop></linearGradient></defs><path fill="url(#logosTailwindcssIcon0)" d="M128 0Q76.8 0 64 51.2Q83.2 25.6 108.8 32c9.737 2.434 16.697 9.499 24.401 17.318C145.751 62.057 160.275 76.8 192 76.8q51.2 0 64-51.2q-19.2 25.6-44.8 19.2c-9.737-2.434-16.697-9.499-24.401-17.318C174.249 14.743 159.725 0 128 0M64 76.8q-51.2 0-64 51.2q19.2-25.6 44.8-19.2c9.737 2.434 16.697 9.499 24.401 17.318C81.751 138.857 96.275 153.6 128 153.6q51.2 0 64-51.2q-19.2 25.6-44.8 19.2c-9.737-2.434-16.697-9.499-24.401-17.318C110.249 91.543 95.725 76.8 64 76.8"></path></svg>
+  `,
+  javascript: `
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 256 256"><path fill="#f7df1e" d="M0 0h256v256H0z"></path><path d="m67.312 213.932l19.59-11.856c3.78 6.701 7.218 12.371 15.465 12.371c7.905 0 12.89-3.092 12.89-15.12v-81.798h24.057v82.138c0 24.917-14.606 36.259-35.916 36.259c-19.245 0-30.416-9.967-36.087-21.996m85.07-2.576l19.588-11.341c5.157 8.421 11.859 14.607 23.715 14.607c9.969 0 16.325-4.984 16.325-11.858c0-8.248-6.53-11.17-17.528-15.98l-6.013-2.58c-17.357-7.387-28.87-16.667-28.87-36.257c0-18.044 13.747-31.792 35.228-31.792c15.294 0 26.292 5.328 34.196 19.247l-18.732 12.03c-4.125-7.389-8.591-10.31-15.465-10.31c-7.046 0-11.514 4.468-11.514 10.31c0 7.217 4.468 10.14 14.778 14.608l6.014 2.577c20.45 8.765 31.963 17.7 31.963 37.804c0 21.654-17.012 33.51-39.867 33.51c-22.339 0-36.774-10.654-43.819-24.574"></path></svg>
+  `,
+  astro: `
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 16 16"><g fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="#cad3f5" d="M10.561 1.61L13.5 10.5c-.995-.517-2.395-1.298-3.5-1.493L8 3.5L6 9.007c-1.11.194-2.5.974-3.5 1.493l3.163-8.891c.121-.398.182-.597.302-.745A1 1 0 0 1 6.36.57c.176-.07.384-.07.8-.07h1.902c.416 0 .625 0 .801.071a1 1 0 0 1 .396.293c.12.148.18.347.301.746" stroke-width="1"></path><path stroke="#c6a0f6" d="M10.411 11.266c-.43.365-1.292.613-2.283.613c-1.217 0-2.237-.374-2.508-.879a2.8 2.8 0 0 0-.119.831s-.063 1.038.666 1.76c0-.374.307-.679.686-.679c.648 0 .648.561.647 1.016v.04c0 .691.426 1.282 1.032 1.532a1.4 1.4 0 0 1-.141-.61c0-.658.39-.903.845-1.188c.36-.227.761-.479 1.038-.985a1.84 1.84 0 0 0 .137-1.451" stroke-width="1"></path></g></svg>
+  `,
+  angular: `
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 128 128"><linearGradient id="deviconAngular0" x1="14.704" x2="110.985" y1="46.27" y2="92.024" gradientTransform="matrix(1 0 0 -1 0 130)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#e40035"></stop><stop offset=".24" stop-color="#f60a48"></stop><stop offset=".352" stop-color="#f20755"></stop><stop offset=".494" stop-color="#dc087d"></stop><stop offset=".745" stop-color="#9717e7"></stop><stop offset="1" stop-color="#6c00f5"></stop></linearGradient><path fill="url(#deviconAngular0)" d="m124.5 21.3l-4.4 68.6L78.3 0zm-29 88.7L64 128l-31.5-18l6.4-15.5h50.3zM64 34.1l16.5 40.2h-33zM7.9 89.9L3.5 21.3L49.7 0z"></path><linearGradient id="deviconAngular1" x1="28.733" x2="91.742" y1="117.071" y2="45.195" gradientTransform="matrix(1 0 0 -1 0 130)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ff31d9"></stop><stop offset="1" stop-color="#ff5be1" stop-opacity="0"></stop></linearGradient><path fill="url(#deviconAngular1)" d="m124.5 21.3l-4.4 68.6L78.3 0zm-29 88.7L64 128l-31.5-18l6.4-15.5h50.3zM64 34.1l16.5 40.2h-33zM7.9 89.9L3.5 21.3L49.7 0z"></path></svg>
+  `,
+  typescript: `
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="40" viewBox="0 0 256 256"><g fill="none"><rect width="256" height="256" fill="#007acc" rx="60"></rect><path fill="#fff" d="m56.611 128.849l-.081 10.484h33.32v94.679h23.569v-94.679h33.32v-10.281c0-5.689-.121-10.443-.284-10.565c-.122-.162-20.399-.244-44.983-.203l-44.739.122zm149.956-10.741c6.501 1.626 11.459 4.511 16.01 9.224c2.357 2.52 5.851 7.112 6.136 8.209c.081.325-11.053 7.802-17.798 11.987c-.244.163-1.22-.894-2.317-2.519c-3.291-4.795-6.745-6.868-12.028-7.233c-7.761-.529-12.759 3.535-12.718 10.321c0 1.991.284 3.169 1.097 4.795c1.706 3.535 4.876 5.648 14.832 9.955c18.326 7.884 26.168 13.085 31.045 20.48c5.445 8.249 6.664 21.415 2.966 31.208c-4.063 10.646-14.141 17.879-28.323 20.277c-4.388.772-14.791.65-19.504-.203c-10.281-1.829-20.033-6.908-26.047-13.572c-2.357-2.601-6.949-9.387-6.664-9.875c.121-.162 1.178-.812 2.356-1.503c1.138-.65 5.446-3.129 9.509-5.486l7.355-4.267l1.544 2.276c2.154 3.291 6.867 7.802 9.712 9.305c8.167 4.308 19.383 3.698 24.909-1.259c2.357-2.154 3.332-4.389 3.332-7.68c0-2.967-.366-4.267-1.91-6.502c-1.991-2.844-6.054-5.242-17.595-10.24c-13.206-5.689-18.895-9.224-24.096-14.832c-3.007-3.25-5.852-8.452-7.03-12.8c-.975-3.616-1.219-12.678-.447-16.335c2.722-12.759 12.353-21.658 26.25-24.3c4.511-.853 14.994-.528 19.424.569"></path></g></svg>
+  `,
+};
 ---
 
 <div class="w-full">
-  <main class="flex flex-col gap-20 md:gap-52 pt-20 md:pt-40 overflow-x-hidden">
+  <main
+    class="flex flex-col gap-20 md:gap-52 sm:pt-20 md:pt-40 overflow-x-hidden"
+  >
     <!-- Vista Inicio -->
-    <div class="flex flex-col lg:flex-row justify-center gap-8">
-      <div class="flex flex-col justify-between max-w-full lg:max-w-lg">
-        <div class="flex flex-col gap-4 items-center lg:items-start">
+    <div
+      class="h-screen p-6 justify-between flex flex-col gap-8 bg-[url('/AiSamuel2.png')] bg-cover bg-center lg:justify-center lg:h-auto lg:flex-row lg:p-0 lg:bg-none lg:rounded-3xl"
+    >
+      <div
+        class="relative h-full z-10 flex flex-col justify-between max-w-full lg:max-w-lg text-white lg:text-inherit"
+      >
+        <div
+          class="flex flex-col h-full justify-between lg:gap-4 lg:items-start"
+        >
           <h1
             class="font-medium text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-center lg:text-left"
           >
             Software <br class="hidden lg:block" /> Developer
           </h1>
+
+          <div class="flex h-full justify-end gap-5 flex-col md:hidden">
+            <p class="text-sm self-start">
+              Hola, soy Samuel Chávez!, ingeniero informático y fan del
+              desarrollo web. Aquí muestro algunos proyectos y servicios que
+              realizo. Siempre estoy aprendiendo algo nuevo, y si algo de lo que
+              ves te gusta, ya valió la pena compartirlo.
+            </p>
+            <div
+              class="flex flex-col self-end gap-4 font-semibold text-base lg:text-2xl"
+            >
+              <h3>Encuéntrame en :</h3>
+              <div class="flex flex-row gap-4 self-center lg:self-end">
+                <img
+                  src="/icons/instagram.svg"
+                  alt="instagramIcon"
+                  class="w-6 h-6 md:w-12 md:h-12"
+                />
+                <img
+                  src="/icons/facebook.svg"
+                  alt="facebookIcon"
+                  class="w-6 h-6 md:w-12 md:h-12"
+                />
+                <img
+                  src="/icons/github.svg"
+                  alt="gitHubIcon"
+                  class="ww-6 h-6 md:w-12 md:h-12"
+                />
+                <img
+                  src="/icons/linkedin.svg"
+                  alt="linkedinIcon"
+                  class="w-6 h-6 md:w-12 md:h-12"
+                />
+              </div>
+            </div>
+          </div>
           <p
-            class="text-base px-8 sm:text-lg md:text-xl max-w-full lg:max-w-md"
+            class="text-xs px-8 max-w-xs sm:text-lg md:text-xl md:max-w-full lg:max-w-md"
           >
-            Mi nombre es Samuel Chávez, soy egresado de Ingeniería Informática y
-            me apasiona todo lo relacionado al desarrollo web. Esta página es
-            una pequeña muestra de lo que he aprendido, construido y sigo
-            explorando. Aquí encontrarás algunos de los proyectos en los que he
-            participado y los servicios que ofrezco como desarrollador. Sigo
-            creciendo paso a paso, y si algo de lo que ves aquí conecta contigo,
-            ya habrá valido la pena compartirlo.
+            <span class="hidden md:block">
+              Mi nombre es Samuel Chávez, soy egresado de Ingeniería Informática
+              y me apasiona todo lo relacionado al desarrollo web. Esta página
+              es una pequeña muestra de lo que he aprendido, construido y sigo
+              explorando. Aquí encontrarás algunos de los proyectos en los que
+              he participado y los servicios que ofrezco como desarrollador.
+              Sigo creciendo paso a paso, y si algo de lo que ves aquí conecta
+              contigo, ya habrá valido la pena compartirlo.
+            </span>
           </p>
         </div>
         <div
-          class="flex flex-col gap-4 self-center lg:self-end font-semibold text-xl lg:text-2xl text-center lg:text-right"
+          class="hidden md:flex flex-col gap-4 self-center lg:self-end font-semibold text-xl lg:text-2xl text-center lg:text-right"
         >
           <h3>Encuéntrame en :</h3>
           <div class="flex flex-row gap-4 self-center lg:self-end">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="48"
-              height="48"
-              viewBox="0 0 24 24"
-              ><g
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                ><path
-                  stroke-dasharray="32"
-                  stroke-dashoffset="32"
-                  d="M12 4c1.67 0 2.61 0.4 3 0.5c0.53 -0.43 1.94 -1.5 3.5 -1.5c0.34 1 0.29 2.22 0 3c0.75 1 1 2 1 3.5c0 2.19 -0.48 3.58 -1.5 4.5c-1.02 0.92 -2.11 1.37 -3.5 1.5c0.65 0.54 0.5 1.87 0.5 2.5c0 0.73 0 3 0 3M12 4c-1.67 0 -2.61 0.4 -3 0.5c-0.53 -0.43 -1.94 -1.5 -3.5 -1.5c-0.34 1 -0.29 2.22 0 3c-0.75 1 -1 2 -1 3.5c0 2.19 0.48 3.58 1.5 4.5c1.02 0.92 2.11 1.37 3.5 1.5c-0.65 0.54 -0.5 1.87 -0.5 2.5c0 0.73 0 3 0 3"
-                  ><animate
-                    fill="freeze"
-                    attributeName="stroke-dashoffset"
-                    dur="0.7s"
-                    values="32;0"></animate></path
-                ><path
-                  stroke-dasharray="10"
-                  stroke-dashoffset="10"
-                  d="M9 19c-1.41 0 -2.84 -0.56 -3.69 -1.19c-0.84 -0.63 -1.09 -1.66 -2.31 -2.31"
-                  ><animate
-                    fill="freeze"
-                    attributeName="stroke-dashoffset"
-                    begin="0.8s"
-                    dur="0.2s"
-                    values="10;0"></animate></path
-                ></g
-              ></svg
-            >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="48"
-              height="48"
-              viewBox="0 0 24 24"
-              ><g
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="4"
-                ><path
-                  stroke-dasharray="24"
-                  stroke-dashoffset="24"
-                  d="M17 4l-2 0c-2.5 0 -4 1.5 -4 4v12"
-                  ><animate
-                    fill="freeze"
-                    attributeName="stroke-dashoffset"
-                    dur="0.4s"
-                    values="24;0"></animate></path
-                ><path stroke-dasharray="8" stroke-dashoffset="8" d="M8 12h7"
-                  ><animate
-                    fill="freeze"
-                    attributeName="stroke-dashoffset"
-                    begin="0.5s"
-                    dur="0.2s"
-                    values="8;0"></animate></path
-                ></g
-              ></svg
-            >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="48"
-              height="48"
-              viewBox="0 0 24 24"
-              ><path
-                fill="currentColor"
-                d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"
-              ></path></svg
-            >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="48"
-              height="48"
-              viewBox="0 0 24 24"
-              ><g fill="none"
-                ><path
-                  d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"
-                ></path><path
-                  fill="currentColor"
-                  d="M18 3a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3zm0 2H6a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1M8 10a1 1 0 0 1 .993.883L9 11v5a1 1 0 0 1-1.993.117L7 16v-5a1 1 0 0 1 1-1m3-1a1 1 0 0 1 .984.821a6 6 0 0 1 .623-.313c.667-.285 1.666-.442 2.568-.159c.473.15.948.43 1.3.907c.315.425.485.942.519 1.523L17 12v4a1 1 0 0 1-1.993.117L15 16v-4c0-.33-.08-.484-.132-.555a.55.55 0 0 0-.293-.188c-.348-.11-.849-.052-1.182.09c-.5.214-.958.55-1.27.861L12 12.34V16a1 1 0 0 1-1.993.117L10 16v-6a1 1 0 0 1 1-1M8 7a1 1 0 1 1 0 2a1 1 0 0 1 0-2"
-                ></path></g
-              ></svg
-            >
+            <img
+              src="/icons/instagram.svg"
+              alt="instagramIcon"
+              class="w-9 h-9 md:w-12 md:h-12"
+            />
+            <img
+              src="/icons/facebook.svg"
+              alt="facebookIcon"
+              class="w-9 h-9 md:w-12 md:h-12"
+            />
+            <img
+              src="/icons/github.svg"
+              alt="gitHubIcon"
+              class="ww-9 h-9 md:w-12 md:h-12"
+            />
+            <img
+              src="/icons/linkedin.svg"
+              alt="linkedinIcon"
+              class="w-9 h-9 md:w-12 md:h-12"
+            />
           </div>
         </div>
       </div>
-      <figure class="object-contain w-full max-w-[550px]">
+      <figure class="hidden lg:block object-contain w-full max-w-[550px]">
         <img
           class="w-full h-auto rounded-3xl"
           src="/AiSamuel2.png"
@@ -132,112 +140,74 @@ import Phases from "./Phases.astro";
       </figure>
     </div>
 
-    <!-- Seccion Frameworks y Herramientas -->
+    <!-- Sección Frameworks y Herramientas -->
     <div
-      class="h-screen flex flex-col justify-around gap-8 bg-primary rounded-bl-[80px] md:rounded-bl-[136px] rounded-tr-[80px] md:rounded-tr-[136px] px-4 md:px-0"
+      class="h-max flex flex-col gap-8 bg-primary rounded-bl-[80px] items-center rounded-tr-[80px] px-4 py-10 md:py-16 md:px-20 lg:py-0 lg:px-0 md:items-stretch md:rounded-bl-[136px] md:rounded-tr-[136px] lg:h-screen md:justify-around"
     >
-      <h3 class="text-secondary font-medium text-5xl px-20">
+      <h3 class="text-secondary font-medium text-3xl lg:text-5xl lg:px-20">
         Frameworks y herramientas
       </h3>
 
       <!-- Herramientas -->
       <div
-        class="flex flex-row flex-wrap justify-center md:justify-end gap-2 px-4 md:px-10"
+        class="grid grid-cols-3 gap-5 px-4 md:px-10 lg:flex lg:flex-row lg:flex-wrap lg:justify-end lg:gap-2"
       >
         <!-- figma -->
         <CardTools>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="48"
-            height="48"
-            viewBox="0 0 256 256"
-            ><g fill="none"
-              ><rect width="48" height="48" fill="#30382F" rx="60"></rect><g
-                clip-path="url(#skillIconsFigmaLight0)"
-                ><path
-                  fill="#0acf83"
-                  d="M94.347 228c18.4 0 33.333-14.933 33.333-33.333v-33.334H94.347c-18.4 0-33.334 14.934-33.334 33.334S75.947 228 94.347 228"
-                ></path><path
-                  fill="#a259ff"
-                  d="M61.013 128c0-18.4 14.934-33.333 33.334-33.333h33.333v66.666H94.347c-18.4 0-33.334-14.933-33.334-33.333"
-                ></path><path
-                  fill="#f24e1e"
-                  d="M61.013 61.333C61.013 42.933 75.947 28 94.347 28h33.333v66.667H94.347c-18.4 0-33.334-14.934-33.334-33.334"
-                ></path><path
-                  fill="#ff7262"
-                  d="M127.68 28h33.333c18.4 0 33.334 14.933 33.334 33.333s-14.934 33.334-33.334 33.334H127.68z"
-                ></path><path
-                  fill="#1abcfe"
-                  d="M194.347 128c0 18.4-14.934 33.333-33.334 33.333S127.68 146.4 127.68 128s14.933-33.333 33.333-33.333S194.347 109.6 194.347 128"
-                ></path></g
-              ><defs
-                ><clipPath id="skillIconsFigmaLight0"
-                  ><path fill="#fff" d="M61 28h133.36v200H61z"></path></clipPath
-                ></defs
-              ></g
-            ></svg
-          >
+          <div set:html={toolSvgs.figma} />
         </CardTools>
-        <div class="relative grid grid-cols-4 gap-y-1 gap-x-2">
+        <!-- Tools en dispositivos moviles y tablets -->
+        <div class="lg:hidden contents">
+          <div>
+            <CardTools><div set:html={toolSvgs.html} /></CardTools>
+          </div>
+          <div>
+            <CardTools><div set:html={toolSvgs.css} /></CardTools>
+          </div>
+          <div>
+            <CardTools>
+              <img
+                src="/public/icons/tailwindcss.svg"
+                alt="iconAngular"
+                class="w-12 h-12"
+              />
+            </CardTools>
+          </div>
+          <div>
+            <CardTools>
+              <img
+                src="/public/icons/angular.svg"
+                alt="iconAngular"
+                class="w-12 h-12"
+              />
+            </CardTools>
+          </div>
+          <div>
+            <CardTools><div set:html={toolSvgs.javascript} /></CardTools>
+          </div>
+          <div>
+            <CardTools><div set:html={toolSvgs.typescript} /></CardTools>
+          </div>
+        </div>
+
+        <!-- Distribución actual para escritorio  -->
+        <div class="hidden lg:grid relative grid-cols-4 gap-y-1 gap-x-2">
           <!-- html -->
           <div class="col-span-1 place-self-center">
             <CardTools>
-              <svg
-                width="48"
-                height="48"
-                viewBox="0 0 48 48"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M8.85298 40.8015L5.48248 3H42.5175L39.1425 40.7955L23.9775 45L8.85298 40.8015Z"
-                  fill="#E44F26"></path>
-                <path
-                  d="M24 41.787L36.255 38.3895L39.138 6.09151H24V41.787Z"
-                  fill="#F1662A"></path>
-                <path
-                  d="M24 20.1105H17.865L17.442 15.363H24V10.7265H12.375L12.486 11.9715L13.6245 24.747H24V20.1105ZM24 32.151L23.979 32.157L18.816 30.7635L18.486 27.066H13.8315L14.481 34.344L23.979 36.981L24 36.975V32.151Z"
-                  fill="#EBEBEB"></path>
-                <path
-                  d="M23.9835 20.1105V24.747H29.6925L29.1555 30.7605L23.9835 32.1555V36.9795L33.489 34.344L33.558 33.561L34.647 21.3555L34.761 20.1105H23.9835ZM23.9835 10.7265V15.363H35.1825L35.2755 14.322L35.487 11.9715L35.598 10.7265H23.9835Z"
-                  fill="white"></path>
-              </svg>
+              <div set:html={toolSvgs.html} />
             </CardTools>
           </div>
           <!-- css -->
           <div class="col-span-1 place-self-center">
             <CardTools>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="48"
-                height="48"
-                viewBox="0 0 128 128"
-                ><path
-                  fill="#1572b6"
-                  d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754l-45.243 12.543z"
-                ></path><path
-                  fill="#33a9dc"
-                  d="m64.001 117.062l36.559-10.136l8.601-96.354h-45.16z"
-                ></path><path
-                  fill="#fff"
-                  d="M64.001 51.429h18.302l1.264-14.163H64.001V23.435h34.682l-.332 3.711l-3.4 38.114h-30.95z"
-                ></path><path
-                  fill="#ebebeb"
-                  d="m64.083 87.349l-.061.018l-15.403-4.159l-.985-11.031H33.752l1.937 21.717l28.331 7.863l.063-.018z"
-                ></path><path
-                  fill="#fff"
-                  d="m81.127 64.675l-1.666 18.522l-15.426 4.164v14.39l28.354-7.858l.208-2.337l2.406-26.881z"
-                ></path><path
-                  fill="#ebebeb"
-                  d="M64.048 23.435v13.831H30.64l-.277-3.108l-.63-7.012l-.331-3.711zm-.047 27.996v13.831H48.792l-.277-3.108l-.631-7.012l-.33-3.711z"
-                ></path></svg
-              >
+              <div set:html={toolSvgs.css} />
             </CardTools>
           </div>
 
           <div class="col-span-2"></div>
 
-          <div class="col-span-2">
+          <div class="hidden lg:block col-span-2">
             <CardTools noPadding>
               <p class="text-start max-w-60 px-5 text-secondary">
                 Algunas de las tecnologías que utilizo
@@ -248,133 +218,39 @@ import Phases from "./Phases.astro";
             <!-- tailwind -->
             <div class="h-16 max-w-32">
               <CardTools>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="40"
-                  height="40"
-                  viewBox="0 0 256 154"
-                  ><defs
-                    ><linearGradient
-                      id="logosTailwindcssIcon0"
-                      x1="-2.778%"
-                      x2="100%"
-                      y1="32%"
-                      y2="67.556%"
-                      ><stop offset="0%" stop-color="#2298bd"></stop><stop
-                        offset="100%"
-                        stop-color="#0ed7b5"></stop></linearGradient
-                    ></defs
-                  ><path
-                    fill="url(#logosTailwindcssIcon0)"
-                    d="M128 0Q76.8 0 64 51.2Q83.2 25.6 108.8 32c9.737 2.434 16.697 9.499 24.401 17.318C145.751 62.057 160.275 76.8 192 76.8q51.2 0 64-51.2q-19.2 25.6-44.8 19.2c-9.737-2.434-16.697-9.499-24.401-17.318C174.249 14.743 159.725 0 128 0M64 76.8q-51.2 0-64 51.2q19.2-25.6 44.8-19.2c9.737 2.434 16.697 9.499 24.401 17.318C81.751 138.857 96.275 153.6 128 153.6q51.2 0 64-51.2q-19.2 25.6-44.8 19.2c-9.737-2.434-16.697-9.499-24.401-17.318C110.249 91.543 95.725 76.8 64 76.8"
-                  ></path></svg
-                >
+                <div set:html={toolSvgs.tailwind} />
               </CardTools>
             </div>
             <!-- javascript -->
 
             <div class="h-40 max-w-44">
               <CardTools>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="48"
-                  height="48"
-                  viewBox="0 0 256 256"
-                  ><path fill="#f7df1e" d="M0 0h256v256H0z"></path><path
-                    d="m67.312 213.932l19.59-11.856c3.78 6.701 7.218 12.371 15.465 12.371c7.905 0 12.89-3.092 12.89-15.12v-81.798h24.057v82.138c0 24.917-14.606 36.259-35.916 36.259c-19.245 0-30.416-9.967-36.087-21.996m85.07-2.576l19.588-11.341c5.157 8.421 11.859 14.607 23.715 14.607c9.969 0 16.325-4.984 16.325-11.858c0-8.248-6.53-11.17-17.528-15.98l-6.013-2.58c-17.357-7.387-28.87-16.667-28.87-36.257c0-18.044 13.747-31.792 35.228-31.792c15.294 0 26.292 5.328 34.196 19.247l-18.732 12.03c-4.125-7.389-8.591-10.31-15.465-10.31c-7.046 0-11.514 4.468-11.514 10.31c0 7.217 4.468 10.14 14.778 14.608l6.014 2.577c20.45 8.765 31.963 17.7 31.963 37.804c0 21.654-17.012 33.51-39.867 33.51c-22.339 0-36.774-10.654-43.819-24.574"
-                  ></path></svg
-                >
+                <div set:html={toolSvgs.javascript} />
               </CardTools>
             </div>
           </div>
           <!-- Astro -->
-          <div class="absolute right-24 -top-20 rotate-12" id="nave">
+          <div
+            class="hidden lg:block absolute right-24 -top-20 rotate-12"
+            id="nave"
+          >
             <CardTools>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="48 "
-                height="48"
-                viewBox="0 0 16 16"
-                ><g fill="none" stroke-linecap="round" stroke-linejoin="round"
-                  ><path
-                    stroke="#cad3f5"
-                    d="M10.561 1.61L13.5 10.5c-.995-.517-2.395-1.298-3.5-1.493L8 3.5L6 9.007c-1.11.194-2.5.974-3.5 1.493l3.163-8.891c.121-.398.182-.597.302-.745A1 1 0 0 1 6.36.57c.176-.07.384-.07.8-.07h1.902c.416 0 .625 0 .801.071a1 1 0 0 1 .396.293c.12.148.18.347.301.746"
-                    stroke-width="1"></path><path
-                    stroke="#c6a0f6"
-                    d="M10.411 11.266c-.43.365-1.292.613-2.283.613c-1.217 0-2.237-.374-2.508-.879a2.8 2.8 0 0 0-.119.831s-.063 1.038.666 1.76c0-.374.307-.679.686-.679c.648 0 .648.561.647 1.016v.04c0 .691.426 1.282 1.032 1.532a1.4 1.4 0 0 1-.141-.61c0-.658.39-.903.845-1.188c.36-.227.761-.479 1.038-.985a1.84 1.84 0 0 0 .137-1.451"
-                    stroke-width="1"></path></g
-                ></svg
-              >
+              <div set:html={toolSvgs.astro} />
             </CardTools>
           </div>
         </div>
-        <div class="relative flex flex-col items-center justify-end">
+        <div
+          class="hidden lg:relative lg:flex lg:flex-col lg:items-center lg:justify-end"
+        >
           <div class="h-60 absolute -rotate-[0.3rad] right-9 bottom-16">
             <!-- Angular -->
-            <CardTools>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="48"
-                height="48"
-                viewBox="0 0 128 128"
-                ><linearGradient
-                  id="deviconAngular0"
-                  x1="14.704"
-                  x2="110.985"
-                  y1="46.27"
-                  y2="92.024"
-                  gradientTransform="matrix(1 0 0 -1 0 130)"
-                  gradientUnits="userSpaceOnUse"
-                  ><stop offset="0" stop-color="#e40035"></stop><stop
-                    offset=".24"
-                    stop-color="#f60a48"></stop><stop
-                    offset=".352"
-                    stop-color="#f20755"></stop><stop
-                    offset=".494"
-                    stop-color="#dc087d"></stop><stop
-                    offset=".745"
-                    stop-color="#9717e7"></stop><stop
-                    offset="1"
-                    stop-color="#6c00f5"></stop></linearGradient
-                ><path
-                  fill="url(#deviconAngular0)"
-                  d="m124.5 21.3l-4.4 68.6L78.3 0zm-29 88.7L64 128l-31.5-18l6.4-15.5h50.3zM64 34.1l16.5 40.2h-33zM7.9 89.9L3.5 21.3L49.7 0z"
-                ></path><linearGradient
-                  id="deviconAngular1"
-                  x1="28.733"
-                  x2="91.742"
-                  y1="117.071"
-                  y2="45.195"
-                  gradientTransform="matrix(1 0 0 -1 0 130)"
-                  gradientUnits="userSpaceOnUse"
-                  ><stop offset="0" stop-color="#ff31d9"></stop><stop
-                    offset="1"
-                    stop-color="#ff5be1"
-                    stop-opacity="0"></stop></linearGradient
-                ><path
-                  fill="url(#deviconAngular1)"
-                  d="m124.5 21.3l-4.4 68.6L78.3 0zm-29 88.7L64 128l-31.5-18l6.4-15.5h50.3zM64 34.1l16.5 40.2h-33zM7.9 89.9L3.5 21.3L49.7 0z"
-                ></path></svg
-              >
-            </CardTools>
+            <CardTools><div set:html={toolSvgs.angular} /></CardTools>
           </div>
 
           <div class="w-16 h-min -translate-x-4">
             <!-- TypeScript -->
             <CardTools noPadding>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="36"
-                height="40"
-                viewBox="0 0 256 256"
-                ><g fill="none"
-                  ><rect width="256" height="256" fill="#007acc" rx="60"
-                  ></rect><path
-                    fill="#fff"
-                    d="m56.611 128.849l-.081 10.484h33.32v94.679h23.569v-94.679h33.32v-10.281c0-5.689-.121-10.443-.284-10.565c-.122-.162-20.399-.244-44.983-.203l-44.739.122zm149.956-10.741c6.501 1.626 11.459 4.511 16.01 9.224c2.357 2.52 5.851 7.112 6.136 8.209c.081.325-11.053 7.802-17.798 11.987c-.244.163-1.22-.894-2.317-2.519c-3.291-4.795-6.745-6.868-12.028-7.233c-7.761-.529-12.759 3.535-12.718 10.321c0 1.991.284 3.169 1.097 4.795c1.706 3.535 4.876 5.648 14.832 9.955c18.326 7.884 26.168 13.085 31.045 20.48c5.445 8.249 6.664 21.415 2.966 31.208c-4.063 10.646-14.141 17.879-28.323 20.277c-4.388.772-14.791.65-19.504-.203c-10.281-1.829-20.033-6.908-26.047-13.572c-2.357-2.601-6.949-9.387-6.664-9.875c.121-.162 1.178-.812 2.356-1.503c1.138-.65 5.446-3.129 9.509-5.486l7.355-4.267l1.544 2.276c2.154 3.291 6.867 7.802 9.712 9.305c8.167 4.308 19.383 3.698 24.909-1.259c2.357-2.154 3.332-4.389 3.332-7.68c0-2.967-.366-4.267-1.91-6.502c-1.991-2.844-6.054-5.242-17.595-10.24c-13.206-5.689-18.895-9.224-24.096-14.832c-3.007-3.25-5.852-8.452-7.03-12.8c-.975-3.616-1.219-12.678-.447-16.335c2.722-12.759 12.353-21.658 26.25-24.3c4.511-.853 14.994-.528 19.424.569"
-                  ></path></g
-                ></svg
-              >
+              <div set:html={toolSvgs.typescript} />
             </CardTools>
           </div>
         </div>
@@ -390,16 +266,15 @@ import Phases from "./Phases.astro";
         Proyectos y Colaboraciones
       </h2>
       <div class="flex flex-wrap justify-center gap-11">
-        <CardProyects
-          titulo="Landing Page - Chirasoft"
-          src="/proyects/Chirasoft.png"
-          descripcion="Rediseño completo de la página web empresarial, desde la creación de interfaces adaptables en Figma hasta el desarrollo frontend utilizando HTML, Tailwind CSS y Astro. El proyecto se centró en mejorar la estructura visual, la navegación en distintos dispositivos y la claridad del contenido."
-        />
-        <CardProyects
-          titulo="Sistema de Gestión - Clinica Nefrológica"
-          src="/proyects/Clinica.png"
-          descripcion="Desarrollo de sistema de gestión para clínica nefrológica, utilizando Angular y Bootstrap en el frontend, Spring Boot para APIs REST y MySQL para la gestión de historiales médicos, citas y administración hospitalaria. Participé activamente en el análisis de procesos, codificación de módulos, levantamiento de requisitos, documentación técnica y en la elaboración del manual de usuario."
-        />
+        {
+          allPosts.map((post) => (
+            <CardProyects
+              titulo={post.frontmatter.title}
+              src={post.frontmatter.image}
+              descripcion={post.frontmatter.description}
+            />
+          ))
+        }
       </div>
     </div>
 
@@ -471,11 +346,27 @@ import Phases from "./Phases.astro";
           </div>
         </div>
         <!-- Pequeña Biografia-->
-        <div class="flex flex-col md:flex-row justify-around items-center gap-5">
-          <div class="frase flex flex-row md:flex-col gap-10 font-bold text-md py-11 md:py-11 md:text-4xl text-primary drop-shadow-md md:drop-shadow-none ">
-            <h2 class="bg-tertiary px-3 py-1 rounded-full md:bg-transparent md:px-0 md:py-0 md:rounded-none">imaginas<span class="md:text-2xl text-md">.</span></h2>
-            <h2 class="bg-tertiary px-3 py-1 rounded-full md:bg-transparent md:px-0 md:py-0 md:rounded-none">construyes<span class="md:text-2xl text-md">.</span></h2>
-            <h2 class="bg-tertiary px-3 py-1 rounded-full md:bg-transparent md:px-0 md:py-0 md:rounded-none">innovas<span class="md:text-2xl text-md">.</span></h2>
+        <div
+          class="flex flex-col md:flex-row justify-around items-center gap-5"
+        >
+          <div
+            class="frase flex flex-row md:flex-col gap-10 font-bold text-md py-11 md:py-11 md:text-4xl text-primary drop-shadow-md md:drop-shadow-none"
+          >
+            <h2
+              class="bg-tertiary px-3 py-1 rounded-full md:bg-transparent md:px-0 md:py-0 md:rounded-none"
+            >
+              imaginas<span class="md:text-2xl text-md">.</span>
+            </h2>
+            <h2
+              class="bg-tertiary px-3 py-1 rounded-full md:bg-transparent md:px-0 md:py-0 md:rounded-none"
+            >
+              construyes<span class="md:text-2xl text-md">.</span>
+            </h2>
+            <h2
+              class="bg-tertiary px-3 py-1 rounded-full md:bg-transparent md:px-0 md:py-0 md:rounded-none"
+            >
+              innovas<span class="md:text-2xl text-md">.</span>
+            </h2>
           </div>
           <svg
             class="hidden md:block"
@@ -491,7 +382,9 @@ import Phases from "./Phases.astro";
           </svg>
           <!-- Vista mis logros-->
           <div class="flex flex-col gap-4 md:gap-10 px-10">
-            <div class="order-2 md:order-1 text-normal md:text-2xl font-bold">Salmo 37 : <span>5</span></div>
+            <div class="order-2 md:order-1 text-normal md:text-2xl font-bold">
+              Salmo 37 : <span>5</span>
+            </div>
             <div
               class="order-1 md:order-2 pb-5 md:pb-0 relative max-w-lg cursor-pointer transition-all duration-300 ease-in-out hover:scale-105"
             >
@@ -532,21 +425,20 @@ import Phases from "./Phases.astro";
   });
 
   gsap.fromTo(
-  ".frase h2",
-  { y: 50, opacity: 0, scale: 0.8 },
-  {
-    y: 0,
-    opacity: 1,
-    scale: 1,
-    ease: "power3.out",
-    stagger: 0.4,
-    duration: 0.8,
-    scrollTrigger: {
-      trigger: ".frase",
-      start: "top 50%",   // cuando el top del div esté al 80% de la ventana
-      toggleActions: "play reverse play reverse", 
-
+    ".frase h2",
+    { y: 50, opacity: 0, scale: 0.8 },
+    {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      ease: "power3.out",
+      stagger: 0.4,
+      duration: 0.8,
+      scrollTrigger: {
+        trigger: ".frase",
+        start: "top 50%", // cuando el top del div esté al 80% de la ventana
+        toggleActions: "play reverse play reverse",
+      },
     }
-  }
-);
+  );
 </script>
