@@ -8,14 +8,14 @@ interface Props {
 const { titulo, descripcion, src } = Astro.props;
 ---
 
-<div class="flex flex-col rounded-xl bg-[#D4E6B7] max-w-lg hover:shadow-xl focus:outline-hidden focus:shadow-lg transition-shadow cursor-pointer">
+<div class="block rounded-xl bg-[#D4E6B7] max-w-lg lg:hover:shadow-xl lg:focus:outline-hidden lg:focus:shadow-lg lg:transition-shadow lg:cursor-pointer">
   <figure class="rounded-t-xl">
-    <img class="object-cover rounded-t-xl min-h-64" src={src} alt="Captura de Pantalla Web Chirasoft" />
+    <img class="object-contain sm:object-cover sm:min-h-64 rounded-t-xl transform transition-transform duration-500 lg:hover:scale-110 lg:hover:shadow-lg" src={src} alt="Proyectos" />
   </figure>
-  <div class="flex flex-col py-5 px-9 text-primary gap-5">
-    <p class="font-semibold text-lg">
+  <div class="flex flex-col py-4 px-7 text-justify sm:text-start sm:py-7 sm:px-9 text-primary gap-2 sm:gap-5">
+    <p class="font-semibold text-base sm:text-lg">
       {titulo}
     </p>
-    <p class="font-medium text-md">{descripcion}</p>
+    <p class="font-medium text-sm sm:text-base">{descripcion}</p>
   </div>
 </div>
