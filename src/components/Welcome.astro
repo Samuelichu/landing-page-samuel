@@ -8,7 +8,7 @@ const allPosts = await Astro.glob("../content/*.md");
 
 const toolSvgs: Record<string, string> = {
   figma: `
-<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 256 256"><g fill="none"><rect width="48" height="48" fill="#30382F" rx="60"></rect><g clip-path="url(#skillIconsFigmaLight0)"><path fill="#0acf83" d="M94.347 228c18.4 0 33.333-14.933 33.333-33.333v-33.334H94.347c-18.4 0-33.334 14.934-33.334 33.334S75.947 228 94.347 228"></path><path fill="#a259ff" d="M61.013 128c0-18.4 14.934-33.333 33.334-33.333h33.333v66.666H94.347c-18.4 0-33.334-14.933-33.334-33.333"></path><path fill="#f24e1e" d="M61.013 61.333C61.013 42.933 75.947 28 94.347 28h33.333v66.667H94.347c-18.4 0-33.334-14.934-33.334-33.334"></path><path fill="#ff7262" d="M127.68 28h33.333c18.4 0 33.334 14.933 33.334 33.333s-14.934 33.334-33.334 33.334H127.68z"></path><path fill="#1abcfe" d="M194.347 128c0 18.4-14.934 33.333-33.334 33.333S127.68 146.4 127.68 128s14.933-33.333 33.333-33.333S194.347 109.6 194.347 128"></path></g><defs><clipPath id="skillIconsFigmaLight0"><path fill="#fff" d="M61 28h133.36v200H61z"></path></clipPath></defs></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 256 256"><g fill="none"><g clip-path="url(#skillIconsFigmaLight0)"><path fill="#0acf83" d="M94.347 228c18.4 0 33.333-14.933 33.333-33.333v-33.334H94.347c-18.4 0-33.334 14.934-33.334 33.334S75.947 228 94.347 228"></path><path fill="#a259ff" d="M61.013 128c0-18.4 14.934-33.333 33.334-33.333h33.333v66.666H94.347c-18.4 0-33.334-14.933-33.334-33.333"></path><path fill="#f24e1e" d="M61.013 61.333C61.013 42.933 75.947 28 94.347 28h33.333v66.667H94.347c-18.4 0-33.334-14.934-33.334-33.334"></path><path fill="#ff7262" d="M127.68 28h33.333c18.4 0 33.334 14.933 33.334 33.333s-14.934 33.334-33.334 33.334H127.68z"></path><path fill="#1abcfe" d="M194.347 128c0 18.4-14.934 33.333-33.334 33.333S127.68 146.4 127.68 128s14.933-33.333 33.333-33.333S194.347 109.6 194.347 128"></path></g><defs><clipPath id="skillIconsFigmaLight0"><path fill="#fff" d="M61 28h133.36v200H61z"></path></clipPath></defs></g></svg>
   `,
   html: `
 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.85298 40.8015L5.48248 3H42.5175L39.1425 40.7955L23.9775 45L8.85298 40.8015Z" fill="#E44F26"></path><path d="M24 41.787L36.255 38.3895L39.138 6.09151H24V41.787Z" fill="#F1662A"></path><path d="M24 20.1105H17.865L17.442 15.363H24V10.7265H12.375L12.486 11.9715L13.6245 24.747H24V20.1105ZM24 32.151L23.979 32.157L18.816 30.7635L18.486 27.066H13.8315L14.481 34.344L23.979 36.981L24 36.975V32.151Z" fill="#EBEBEB"></path><path d="M23.9835 20.1105V24.747H29.6925L29.1555 30.7605L23.9835 32.1555V36.9795L33.489 34.344L33.558 33.561L34.647 21.3555L34.761 20.1105H23.9835ZM23.9835 10.7265V15.363H35.1825L35.2755 14.322L35.487 11.9715L35.598 10.7265H23.9835Z" fill="white"></path></svg>
@@ -36,26 +36,27 @@ const toolSvgs: Record<string, string> = {
 
 <div class="w-full">
   <main
-    class="flex flex-col gap-20 md:gap-52 sm:pt-20 md:pt-40 overflow-x-hidden"
+    class="flex flex-col lg:gap-52 lg:pt-40 overflow-x-hidden"
   >
-    <!-- Vista Inicio -->
+    <!-- Vista Inicio-->
     <div
-      class="h-screen p-6 justify-between flex flex-col gap-8 bg-[url('/AiSamuel2.png')] bg-cover bg-center lg:justify-center lg:h-auto lg:flex-row lg:p-0 lg:bg-none lg:rounded-3xl"
+      class="h-screen px-6 py-6 justify-between flex flex-col gap-8 bg-[url('/AiSamuel2.png')] bg-cover bg-center lg:justify-center lg:h-auto lg:flex-row lg:py-0 lg:bg-none lg:rounded-3xl"
+      id="inicio"
     >
       <div
-        class="relative h-full z-10 flex flex-col justify-between max-w-full lg:max-w-lg text-white lg:text-inherit"
+        class="relative h-full z-10 flex flex-col justify-between lg:gap-16 max-w-full lg:max-w-lg text-white lg:text-inherit"
       >
         <div
           class="flex flex-col h-full justify-between lg:gap-4 lg:items-start"
         >
           <h1
-            class="font-medium text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-center lg:text-left"
+            class="font-medium text-5xl text-center pt-4 sm:text-6xl md:text-7xl lg:text-8xl lg:text-left xl:pt-0"
           >
             Software <br class="hidden lg:block" /> Developer
           </h1>
 
-          <div class="flex h-full justify-end gap-5 flex-col md:hidden">
-            <p class="text-sm self-start">
+          <div class="flex h-full justify-end gap-7 sm:gap-10 flex-col lg:hidden">
+            <p class="text-sm max-w-2xl self-center md:text-xl">
               Hola, soy Samuel Chávez!, ingeniero informático y fan del
               desarrollo web. Aquí muestro algunos proyectos y servicios que
               realizo. Siempre estoy aprendiendo algo nuevo, y si algo de lo que
@@ -65,6 +66,7 @@ const toolSvgs: Record<string, string> = {
               class="flex flex-col self-end gap-4 font-semibold text-base lg:text-2xl"
             >
               <h3>Encuéntrame en :</h3>
+
               <div class="flex flex-row gap-4 self-center lg:self-end">
                 <img
                   src="/icons/instagram.svg"
@@ -90,9 +92,9 @@ const toolSvgs: Record<string, string> = {
             </div>
           </div>
           <p
-            class="text-xs px-8 max-w-xs sm:text-lg md:text-xl md:max-w-full lg:max-w-md"
+            class="text-xs px-8 sm:text-lg md:text-xl md:max-w-full lg:max-w-md"
           >
-            <span class="hidden md:block">
+            <span class="hidden lg:block">
               Mi nombre es Samuel Chávez, soy egresado de Ingeniería Informática
               y me apasiona todo lo relacionado al desarrollo web. Esta página
               es una pequeña muestra de lo que he aprendido, construido y sigo
@@ -104,47 +106,50 @@ const toolSvgs: Record<string, string> = {
           </p>
         </div>
         <div
-          class="hidden md:flex flex-col gap-4 self-center lg:self-end font-semibold text-xl lg:text-2xl text-center lg:text-right"
+          class="hidden gap-4 self-center font-semibold text-xl text-center lg:flex lg:flex-col lg:text-2xl lg:self-end lg:text-right"
         >
           <h3>Encuéntrame en :</h3>
-          <div class="flex flex-row gap-4 self-center lg:self-end">
+          <div class="grid grid-cols-2 justify-items-center p-2 gap-3">
             <img
-              src="/icons/instagram.svg"
-              alt="instagramIcon"
-              class="w-9 h-9 md:w-12 md:h-12"
+              src="/icons/facebooklg.svg"
+              alt="facebookIconlg"
+              class="w-12 h-12"
             />
             <img
-              src="/icons/facebook.svg"
-              alt="facebookIcon"
-              class="w-9 h-9 md:w-12 md:h-12"
+              src="/icons/instagramlg.svg"
+              alt="instagramIconlg"
+              class="w-12 h-12"
             />
             <img
-              src="/icons/github.svg"
+              src="/icons/githublg.svg"
               alt="gitHubIcon"
-              class="ww-9 h-9 md:w-12 md:h-12"
+              class="w-12 h-12"
             />
             <img
-              src="/icons/linkedin.svg"
+              src="/icons/linkedinlg.svg"
               alt="linkedinIcon"
-              class="w-9 h-9 md:w-12 md:h-12"
+              class="w-12 h-12"
             />
           </div>
         </div>
       </div>
       <figure class="hidden lg:block object-contain w-full max-w-[550px]">
         <img
-          class="w-full h-auto rounded-3xl"
+          class="w-full h-full rounded-3xl"
           src="/AiSamuel2.png"
-          alt="Samuel Chávez - Desarrollador de Software"
+          alt="imageSamuelAI"
         />
       </figure>
     </div>
 
     <!-- Sección Frameworks y Herramientas -->
     <div
-      class="h-max flex flex-col gap-8 bg-primary rounded-bl-[80px] items-center rounded-tr-[80px] px-4 py-10 md:py-16 md:px-20 lg:py-0 lg:px-0 md:items-stretch md:rounded-bl-[136px] md:rounded-tr-[136px] lg:h-screen md:justify-around"
+      class="h-max flex flex-col gap-16 bg-gradient-to-b from-black/90 to-primary items-center px-4 py-10 xl:gap-8 lg:bg-primary lg:bg-none md:py-16 md:px-20 lg:py-0 lg:px-0 md:items-stretch xl:rounded-bl-[136px] xl:rounded-tr-[136px] lg:h-screen md:justify-around"
+      id="herramientas"
     >
-      <h3 class="text-secondary font-medium text-3xl lg:text-5xl lg:px-20">
+      <h3
+        class="text-secondary font-medium text-xl sm:text-3xl lg:text-5xl lg:px-20"
+      >
         Frameworks y herramientas
       </h3>
 
@@ -167,7 +172,7 @@ const toolSvgs: Record<string, string> = {
           <div>
             <CardTools>
               <img
-                src="/public/icons/tailwindcss.svg"
+                src="/icons/tailwindcss.svg"
                 alt="iconAngular"
                 class="w-12 h-12"
               />
@@ -176,7 +181,7 @@ const toolSvgs: Record<string, string> = {
           <div>
             <CardTools>
               <img
-                src="/public/icons/angular.svg"
+                src="/icons/angular.svg"
                 alt="iconAngular"
                 class="w-12 h-12"
               />
@@ -260,12 +265,15 @@ const toolSvgs: Record<string, string> = {
     <!-- Vista Proyectos y contribuciones -->
 
     <div
-      class="flex flex-col gap-12 md:gap-24 py-16 md:py-0 md:h-screen justify-center"
+      class="flex flex-col gap-12 py-16 justify-center items-center md:gap-24 lg:items-stretch lg:py-0 lg:h-screen"
+      id="proyectos"
     >
-      <h2 class="text-primary font-semibold text-4xl mx-20">
+      <h2
+        class="text-primary font-semibold text-xl sm:text-3xl lg:text-5xl md:px-20 md:self-start"
+      >
         Proyectos y Colaboraciones
       </h2>
-      <div class="flex flex-wrap justify-center gap-11">
+      <div class="flex flex-wrap justify-center gap-11 px-5 sm:px-10">
         {
           allPosts.map((post) => (
             <CardProyects
@@ -281,7 +289,7 @@ const toolSvgs: Record<string, string> = {
     <!-- Vista mis servicios-->
     <div class="flex flex-col gap-8 md:gap-16">
       <h2
-        class="text-primary font-semibold text-3xl md:text-4xl text-center md:text-left px-4 md:mx-20"
+        class="text-primary font-semibold text-xl sm:text-3xl lg:text-5xl md:px-20 text-center md:text-left"
       >
         Mis Servicios
       </h2>
@@ -289,7 +297,7 @@ const toolSvgs: Record<string, string> = {
       <!--servicios-->
       <div class="flex flex-col">
         <div class="bg-primary py-16">
-          <div class="flex flex-col justify-center gap-16 px-5">
+          <div class="flex flex-wrap justify-center gap-16 px-5">
             <CardServices
               titulo1="Diseños"
               titulo2="UX/UI"
@@ -305,29 +313,29 @@ const toolSvgs: Record<string, string> = {
         </div>
 
         <!-- fases -->
-        <div class="bg-primary md:rounded-b-3xl self-center">
+        <div class="bg-primary xl:rounded-b-3xl xl:self-center">
           <div class="">
             <!-- Línea de tiempo (horizontal) -->
             <div
-              class="relative flex justify-center items-center h-2 bg-tertiary md:bg-white"
+              class="relative flex justify-center items-center h-2 bg-tertiary xl:bg-white"
             >
               <!-- Puntos de la línea -->
               <div
-                class="hidden md:block absolute left-1/4 -top-2 w-6 h-6 bg-tertiary shadow-black/50 shadow-xl rounded-full"
+                class="hidden xl:block absolute left-1/4 -top-2 w-6 h-6 bg-tertiary shadow-black/50 shadow-xl rounded-full"
               >
               </div>
               <div
-                class="hidden md:block absolute left-1/2 -top-2 w-6 h-6 bg-tertiary shadow-black/50 shadow-xl rounded-full"
+                class="hidden xl:block absolute left-1/2 -top-2 w-6 h-6 bg-tertiary shadow-black/50 shadow-xl rounded-full"
               >
               </div>
               <div
-                class="hidden md:block absolute right-1/4 -top-2 w-6 h-6 bg-tertiary shadow-black/50 shadow-xl rounded-full"
+                class="hidden xl:block absolute right-1/4 -top-2 w-6 h-6 bg-tertiary shadow-black/50 shadow-xl rounded-full"
               >
               </div>
             </div>
           </div>
 
-          <div class="flex py-11 flex-wrap justify-around gap-8 md:px-11">
+          <div class="flex py-11 flex-wrap justify-around gap-8 sm:px-11">
             <Phases
               titulo="Descubrimiento y Planificación"
               number="01"
@@ -341,16 +349,16 @@ const toolSvgs: Record<string, string> = {
             <Phases
               titulo="Despliegue y Entrega"
               number="03"
-              descripcion="Revisamos todo, lo dejamos listo y te lo entregamos para usarlo o seguir iterando."
+              descripcion="Revisamos todo, lo dejamos listo y realizamos la entrega del producto, o continuamos mejorandolo."
             />
           </div>
         </div>
         <!-- Pequeña Biografia-->
         <div
-          class="flex flex-col md:flex-row justify-around items-center gap-5"
+          class="flex flex-col px-4 py-4 md:py-0 md:flex-row justify-around items-center gap-5"
         >
           <div
-            class="frase flex flex-row md:flex-col gap-10 font-bold text-md py-11 md:py-11 md:text-4xl text-primary drop-shadow-md md:drop-shadow-none"
+            class="frase flex flex-row justify-around w-full gap-2 md:justify-normal md:w-auto md:gap-8 md:flex-col  font-bold text-md py-11  md:text-4xl text-primary drop-shadow-md md:drop-shadow-none"
           >
             <h2
               class="bg-tertiary px-3 py-1 rounded-full md:bg-transparent md:px-0 md:py-0 md:rounded-none"
@@ -417,11 +425,11 @@ const toolSvgs: Record<string, string> = {
   import gsap from "gsap";
 
   gsap.to("#nave", {
-    y: -30, // se desplaza hacia arriba
-    duration: 2, // tarda 2 segundos en subir
-    repeat: -1, // infinito
-    yoyo: true, // vuelve a su posición original
-    ease: "power1.inOut", // movimiento suave
+    y: -30,
+    duration: 2,
+    repeat: -1,
+    yoyo: true,
+    ease: "power1.inOut",
   });
 
   gsap.fromTo(
@@ -436,7 +444,7 @@ const toolSvgs: Record<string, string> = {
       duration: 0.8,
       scrollTrigger: {
         trigger: ".frase",
-        start: "top 50%", // cuando el top del div esté al 80% de la ventana
+        start: "top 80%",
         toggleActions: "play reverse play reverse",
       },
     }
