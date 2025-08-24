@@ -9,14 +9,14 @@ const { titulo1 = "", titulo2 = "", descripcion } = Astro.props;
 ---
 
 <div class="flex flex-row justify-center gap-2" id="services">
-  <h2 class="hidden md:block font-semibold text-9xl text-secondary self-start" id="title1">{titulo1}</h2>
+  <h2 class="hidden xl:block font-semibold text-9xl text-secondary self-start" id="title1">{titulo1}</h2>
   <div
-    class="relative flex flex-col rounded-xl shadow-lg bg-tertiary text-primary p-5 justify-center max-w-md"
+    class="relative flex flex-col rounded-xl shadow-lg bg-tertiary text-primary p-5 justify-center max-w-md gap-3 md:max-w-xs lg:max-w-md"
   >
-    <h2 class="block md:hidden font-semibold text-xl">{titulo1 + " " + titulo2}</h2>
+    <h2 class="block xl:hidden font-semibold text-xl">{titulo1 + " " + titulo2}</h2>
     <p class="font-semibold text-sm ">{descripcion}</p>
   </div>
-  <h2 class="hidden md:block font-semibold text-9xl self-end text-secondary" id="title2">{titulo2}</h2>
+  <h2 class="hidden xl:block font-semibold text-9xl self-end text-secondary" id="title2">{titulo2}</h2>
 </div>
 
 <script>
