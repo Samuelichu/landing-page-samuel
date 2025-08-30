@@ -2,55 +2,55 @@
 
 ---
 
-<header class="">
+<header class="w-full">
   <nav
-  id="navbar"
-    class="flex bg-white lg:fixed lg:top-0 lg:left-0 lg:right-0 lg:bg-transparent z-50 flex-row rounded-b-2xl max-w-[1204px] mx-auto md:mt-6 shadow-md px-12 py-6 gap-16 font-semibold text-xl text-primary items-end justify-between"
+    id="navbar"
+    class="flex bg-white fixed z-50 flex-row rounded-b-2xl px-12 py-6 shadow-md gap-16 font-medium text-xl text-primary items-end justify-between lg:mt-6 top-0 left-0 right-0 "
+
   >
     <div class="self-center rounded-full w-4 h-4 bg-primary"></div>
     <div
       id="nav-links"
       class="flex flex-row gap-10 -mx-12 px-12 overflow-x-auto whitespace-nowrap snap-x snap-mandatory lg:overflow-visible lg:whitespace-normal lg:snap-none [scrollbar-width:none] [-ms-overflow-style:'none'] [&::-webkit-scrollbar]:hidden"
     >
-      <a href="#" class="shrink-0 snap-start">Inicio</a>
-      <a href="#" class="shrink-0 snap-start">Herramientas</a>
-      <a href="#" class="shrink-0 snap-start">Proyectos</a>
-      <a href="#" class="shrink-0 snap-start">Contacto</a>
+      <a href="#inicio" class="shrink-0 snap-start">Inicio</a>
+      <a href="#herramientas" class="shrink-0 snap-start">Herramientas</a>
+      <a href="#proyectos" class="shrink-0 snap-start">Proyectos</a>
+      <a href="#contacto" class="shrink-0 snap-start">Contacto</a>
     </div>
   </nav>
 </header>
 
 <script>
   import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+  import ScrollTrigger from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger);
 
-// 
-gsap.to("#navbar", {
-  scrollTrigger: {
-    trigger: "body",
-    start: "top top",
-    end: "+=200",
-    scrub: 1,
-  },
-  padding: "0.5rem 3rem", 
-  backgroundColor: "rgba(255, 255, 255, 0.25)", 
-  backdropFilter: "blur(12px)",  
-  webkitBackdropFilter: "blur(12px)",           
-  borderRadius: "2rem", 
-  maxWidth: "800px",              
-  ease: "power1.out",
-});
+  //
+  
+    gsap.to("#navbar", {
+      scrollTrigger: {
+        trigger: "body",
+        start: "top top",
+        end: "+=200",
+        scrub: 1,
+      },
+      backgroundColor: "rgba(255, 255, 255, 0.25)",
+      backdropFilter: "blur(12px)",
+      marginLeft: window.innerWidth >= 1280 ? "1.5rem" : "0",
+      marginRight: window.innerWidth >= 1280 ? "1.5rem" : "0",
+      ease: "power1.out",
+    });
 
-gsap.to("#nav-links a", {
-  scrollTrigger: {
-    trigger: "body",
-    start: "top top",
-    end: "+=200",
-    scrub: 1,
-  },
-  fontSize: "1rem", 
-});
-
+    gsap.to("#nav-links a", {
+      scrollTrigger: {
+        trigger: "body",
+        start: "top top",
+        end: "+=200",
+        scrub: 1,
+      },
+      fontSize: "1rem",
+    });
+  
 </script>
