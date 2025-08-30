@@ -1,0 +1,21 @@
+---
+interface Props {
+  titulo: string;
+  descripcion: string;
+  src: string;
+} 
+
+const { titulo, descripcion, src } = Astro.props;
+---
+
+<div class="block rounded-xl bg-[#D4E6B7] max-w-lg lg:hover:shadow-xl lg:focus:outline-hidden lg:focus:shadow-lg lg:transition-shadow lg:cursor-pointer">
+  <figure class="rounded-t-xl">
+    <img class="object-contain sm:object-cover sm:min-h-64 rounded-t-xl transform transition-transform duration-500 lg:hover:scale-110 lg:hover:shadow-lg" src={src} alt="Proyectos" />
+  </figure>
+  <div class="flex flex-col py-4 px-7 text-justify sm:text-start sm:py-7 sm:px-9 text-primary gap-2 sm:gap-5">
+    <p class="font-semibold text-base sm:text-lg">
+      {titulo}
+    </p>
+    <p class="font-medium text-sm sm:text-base">{descripcion}</p>
+  </div>
+</div>

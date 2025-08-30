@@ -1,0 +1,16 @@
+---
+interface Props {
+  noPadding?: boolean;
+}
+
+const { noPadding } = Astro.props;
+---
+
+<div
+  class:list={[
+    "flex justify-center h-full border-2 rounded-[35px] border-secondary transition-transform hover:scale-105",
+    noPadding ? "items-end py-3" : "items-center p-8",
+  ]}
+>
+  <slot/>
+</div>

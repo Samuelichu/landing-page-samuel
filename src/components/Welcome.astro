@@ -1,225 +1,483 @@
 ---
-// import astroLogo from "../assets/astro.svg";
-// import background from "../assets/background.svg";
+import CardProyects from "./CardProyects.astro";
+import CardServices from "./CardServices.astro";
+import CardTools from "./CardTools.astro";
+import Phases from "./Phases.astro";
+
+const allPosts = await Astro.glob("../content/*.md");
+
+const toolSvgs: Record<string, string> = {
+  figma: `
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 256 256"><g fill="none"><g clip-path="url(#skillIconsFigmaLight0)"><path fill="#0acf83" d="M94.347 228c18.4 0 33.333-14.933 33.333-33.333v-33.334H94.347c-18.4 0-33.334 14.934-33.334 33.334S75.947 228 94.347 228"></path><path fill="#a259ff" d="M61.013 128c0-18.4 14.934-33.333 33.334-33.333h33.333v66.666H94.347c-18.4 0-33.334-14.933-33.334-33.333"></path><path fill="#f24e1e" d="M61.013 61.333C61.013 42.933 75.947 28 94.347 28h33.333v66.667H94.347c-18.4 0-33.334-14.934-33.334-33.334"></path><path fill="#ff7262" d="M127.68 28h33.333c18.4 0 33.334 14.933 33.334 33.333s-14.934 33.334-33.334 33.334H127.68z"></path><path fill="#1abcfe" d="M194.347 128c0 18.4-14.934 33.333-33.334 33.333S127.68 146.4 127.68 128s14.933-33.333 33.333-33.333S194.347 109.6 194.347 128"></path></g><defs><clipPath id="skillIconsFigmaLight0"><path fill="#fff" d="M61 28h133.36v200H61z"></path></clipPath></defs></g></svg>
+  `,
+  html: `
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.85298 40.8015L5.48248 3H42.5175L39.1425 40.7955L23.9775 45L8.85298 40.8015Z" fill="#E44F26"></path><path d="M24 41.787L36.255 38.3895L39.138 6.09151H24V41.787Z" fill="#F1662A"></path><path d="M24 20.1105H17.865L17.442 15.363H24V10.7265H12.375L12.486 11.9715L13.6245 24.747H24V20.1105ZM24 32.151L23.979 32.157L18.816 30.7635L18.486 27.066H13.8315L14.481 34.344L23.979 36.981L24 36.975V32.151Z" fill="#EBEBEB"></path><path d="M23.9835 20.1105V24.747H29.6925L29.1555 30.7605L23.9835 32.1555V36.9795L33.489 34.344L33.558 33.561L34.647 21.3555L34.761 20.1105H23.9835ZM23.9835 10.7265V15.363H35.1825L35.2755 14.322L35.487 11.9715L35.598 10.7265H23.9835Z" fill="white"></path></svg>
+  `,
+  css: `
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 128 128"><path fill="#1572b6" d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754l-45.243 12.543z"></path><path fill="#33a9dc" d="m64.001 117.062l36.559-10.136l8.601-96.354h-45.16z"></path><path fill="#fff" d="M64.001 51.429h18.302l1.264-14.163H64.001V23.435h34.682l-.332 3.711l-3.4 38.114h-30.95z"></path><path fill="#ebebeb" d="m64.083 87.349l-.061.018l-15.403-4.159l-.985-11.031H33.752l1.937 21.717l28.331 7.863l.063-.018z"></path><path fill="#fff" d="m81.127 64.675l-1.666 18.522l-15.426 4.164v14.39l28.354-7.858l.208-2.337l2.406-26.881z"></path><path fill="#ebebeb" d="M64.048 23.435v13.831H30.64l-.277-3.108l-.63-7.012l-.331-3.711zm-.047 27.996v13.831H48.792l-.277-3.108l-.631-7.012l-.33-3.711z"></path></svg>
+  `,
+  tailwind: `
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 154"><defs><linearGradient id="logosTailwindcssIcon0" x1="-2.778%" x2="100%" y1="32%" y2="67.556%"><stop offset="0%" stop-color="#2298bd"></stop><stop offset="100%" stop-color="#0ed7b5"></stop></linearGradient></defs><path fill="url(#logosTailwindcssIcon0)" d="M128 0Q76.8 0 64 51.2Q83.2 25.6 108.8 32c9.737 2.434 16.697 9.499 24.401 17.318C145.751 62.057 160.275 76.8 192 76.8q51.2 0 64-51.2q-19.2 25.6-44.8 19.2c-9.737-2.434-16.697-9.499-24.401-17.318C174.249 14.743 159.725 0 128 0M64 76.8q-51.2 0-64 51.2q19.2-25.6 44.8-19.2c9.737 2.434 16.697 9.499 24.401 17.318C81.751 138.857 96.275 153.6 128 153.6q51.2 0 64-51.2q-19.2 25.6-44.8 19.2c-9.737-2.434-16.697-9.499-24.401-17.318C110.249 91.543 95.725 76.8 64 76.8"></path></svg>
+  `,
+  javascript: `
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 256 256"><path fill="#f7df1e" d="M0 0h256v256H0z"></path><path d="m67.312 213.932l19.59-11.856c3.78 6.701 7.218 12.371 15.465 12.371c7.905 0 12.89-3.092 12.89-15.12v-81.798h24.057v82.138c0 24.917-14.606 36.259-35.916 36.259c-19.245 0-30.416-9.967-36.087-21.996m85.07-2.576l19.588-11.341c5.157 8.421 11.859 14.607 23.715 14.607c9.969 0 16.325-4.984 16.325-11.858c0-8.248-6.53-11.17-17.528-15.98l-6.013-2.58c-17.357-7.387-28.87-16.667-28.87-36.257c0-18.044 13.747-31.792 35.228-31.792c15.294 0 26.292 5.328 34.196 19.247l-18.732 12.03c-4.125-7.389-8.591-10.31-15.465-10.31c-7.046 0-11.514 4.468-11.514 10.31c0 7.217 4.468 10.14 14.778 14.608l6.014 2.577c20.45 8.765 31.963 17.7 31.963 37.804c0 21.654-17.012 33.51-39.867 33.51c-22.339 0-36.774-10.654-43.819-24.574"></path></svg>
+  `,
+  astro: `
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 16 16"><g fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="#cad3f5" d="M10.561 1.61L13.5 10.5c-.995-.517-2.395-1.298-3.5-1.493L8 3.5L6 9.007c-1.11.194-2.5.974-3.5 1.493l3.163-8.891c.121-.398.182-.597.302-.745A1 1 0 0 1 6.36.57c.176-.07.384-.07.8-.07h1.902c.416 0 .625 0 .801.071a1 1 0 0 1 .396.293c.12.148.18.347.301.746" stroke-width="1"></path><path stroke="#c6a0f6" d="M10.411 11.266c-.43.365-1.292.613-2.283.613c-1.217 0-2.237-.374-2.508-.879a2.8 2.8 0 0 0-.119.831s-.063 1.038.666 1.76c0-.374.307-.679.686-.679c.648 0 .648.561.647 1.016v.04c0 .691.426 1.282 1.032 1.532a1.4 1.4 0 0 1-.141-.61c0-.658.39-.903.845-1.188c.36-.227.761-.479 1.038-.985a1.84 1.84 0 0 0 .137-1.451" stroke-width="1"></path></g></svg>
+  `,
+  angular: `
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 128 128"><linearGradient id="deviconAngular0" x1="14.704" x2="110.985" y1="46.27" y2="92.024" gradientTransform="matrix(1 0 0 -1 0 130)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#e40035"></stop><stop offset=".24" stop-color="#f60a48"></stop><stop offset=".352" stop-color="#f20755"></stop><stop offset=".494" stop-color="#dc087d"></stop><stop offset=".745" stop-color="#9717e7"></stop><stop offset="1" stop-color="#6c00f5"></stop></linearGradient><path fill="url(#deviconAngular0)" d="m124.5 21.3l-4.4 68.6L78.3 0zm-29 88.7L64 128l-31.5-18l6.4-15.5h50.3zM64 34.1l16.5 40.2h-33zM7.9 89.9L3.5 21.3L49.7 0z"></path><linearGradient id="deviconAngular1" x1="28.733" x2="91.742" y1="117.071" y2="45.195" gradientTransform="matrix(1 0 0 -1 0 130)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ff31d9"></stop><stop offset="1" stop-color="#ff5be1" stop-opacity="0"></stop></linearGradient><path fill="url(#deviconAngular1)" d="m124.5 21.3l-4.4 68.6L78.3 0zm-29 88.7L64 128l-31.5-18l6.4-15.5h50.3zM64 34.1l16.5 40.2h-33zM7.9 89.9L3.5 21.3L49.7 0z"></path></svg>
+  `,
+  typescript: `
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="40" viewBox="0 0 256 256"><g fill="none"><rect width="256" height="256" fill="#007acc" rx="60"></rect><path fill="#fff" d="m56.611 128.849l-.081 10.484h33.32v94.679h23.569v-94.679h33.32v-10.281c0-5.689-.121-10.443-.284-10.565c-.122-.162-20.399-.244-44.983-.203l-44.739.122zm149.956-10.741c6.501 1.626 11.459 4.511 16.01 9.224c2.357 2.52 5.851 7.112 6.136 8.209c.081.325-11.053 7.802-17.798 11.987c-.244.163-1.22-.894-2.317-2.519c-3.291-4.795-6.745-6.868-12.028-7.233c-7.761-.529-12.759 3.535-12.718 10.321c0 1.991.284 3.169 1.097 4.795c1.706 3.535 4.876 5.648 14.832 9.955c18.326 7.884 26.168 13.085 31.045 20.48c5.445 8.249 6.664 21.415 2.966 31.208c-4.063 10.646-14.141 17.879-28.323 20.277c-4.388.772-14.791.65-19.504-.203c-10.281-1.829-20.033-6.908-26.047-13.572c-2.357-2.601-6.949-9.387-6.664-9.875c.121-.162 1.178-.812 2.356-1.503c1.138-.65 5.446-3.129 9.509-5.486l7.355-4.267l1.544 2.276c2.154 3.291 6.867 7.802 9.712 9.305c8.167 4.308 19.383 3.698 24.909-1.259c2.357-2.154 3.332-4.389 3.332-7.68c0-2.967-.366-4.267-1.91-6.502c-1.991-2.844-6.054-5.242-17.595-10.24c-13.206-5.689-18.895-9.224-24.096-14.832c-3.007-3.25-5.852-8.452-7.03-12.8c-.975-3.616-1.219-12.678-.447-16.335c2.722-12.759 12.353-21.658 26.25-24.3c4.511-.853 14.994-.528 19.424.569"></path></g></svg>
+  `,
+};
 ---
 
-<!-- <div id="container">
-	<img id="background" src={background.src} alt="" fetchpriority="high" />
-	<main>
-		<section id="hero">
-			<a href="https://astro.build"
-				><img src={astroLogo.src} width="115" height="48" alt="Astro Homepage" /></a
-			>
-			<h1>
-				To get started, open the <code><pre>src/pages</pre></code> directory in your project.
-			</h1>
-			<section id="links">
-				<a class="button" href="https://docs.astro.build">Read our docs</a>
-				<a href="https://astro.build/chat"
-					>Join our Discord <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36"
-						><path
-							fill="currentColor"
-							d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.11 0A72.37 72.37 0 0 0 45.64 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.71 56.6.54 80.21a105.73 105.73 0 0 0 32.17 16.15 77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.18c.91-.66 1.8-1.34 2.66-2a75.57 75.57 0 0 0 64.32 0c.87.71 1.76 1.39 2.66 2a68.68 68.68 0 0 1-10.87 5.19 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.19-16.14c2.64-27.38-4.51-51.11-18.9-72.15ZM42.45 65.69C36.18 65.69 31 60 31 53s5-12.74 11.43-12.74S54 46 53.89 53s-5.05 12.69-11.44 12.69Zm42.24 0C78.41 65.69 73.25 60 73.25 53s5-12.74 11.44-12.74S96.23 46 96.12 53s-5.04 12.69-11.43 12.69Z"
-						></path></svg
-					>
-				</a>
-			</section>
-		</section>
-	</main>
-
-	<a href="https://astro.build/blog/astro-5/" id="news" class="box">
-		<svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"
-			><path
-				d="M24.667 12c1.333 1.414 2 3.192 2 5.334 0 4.62-4.934 5.7-7.334 12C18.444 28.567 18 27.456 18 26c0-4.642 6.667-7.053 6.667-14Zm-5.334-5.333c1.6 1.65 2.4 3.43 2.4 5.333 0 6.602-8.06 7.59-6.4 17.334C13.111 27.787 12 25.564 12 22.666c0-4.434 7.333-8 7.333-16Zm-6-5.333C15.111 3.555 16 5.556 16 7.333c0 8.333-11.333 10.962-5.333 22-3.488-.774-6-4-6-8 0-8.667 8.666-10 8.666-20Z"
-				fill="#111827"></path></svg
-		>
-		<h2>What's New in Astro 5.0?</h2>
-		<p>
-			From content layers to server islands, click to learn more about the new features and
-			improvements in Astro 5.0
-		</p>
-	</a>
-</div>
-
-<style>
-	#background {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-		filter: blur(100px);
-	}
-
-	#container {
-		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
-		height: 100%;
-	}
-
-	main {
-		height: 100%;
-		display: flex;
-		justify-content: center;
-	}
-
-	#hero {
-		display: flex;
-		align-items: start;
-		flex-direction: column;
-		justify-content: center;
-		padding: 16px;
-	}
-
-	h1 {
-		font-size: 22px;
-		margin-top: 0.25em;
-	}
-
-	#links {
-		display: flex;
-		gap: 16px;
-	}
-
-	#links a {
-		display: flex;
-		align-items: center;
-		padding: 10px 12px;
-		color: #111827;
-		text-decoration: none;
-		transition: color 0.2s;
-	}
-
-	#links a:hover {
-		color: rgb(78, 80, 86);
-	}
-
-	#links a svg {
-		height: 1em;
-		margin-left: 8px;
-	}
-
-	#links a.button {
-		color: white;
-		background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
-		box-shadow:
-			inset 0 0 0 1px rgba(255, 255, 255, 0.12),
-			inset 0 -2px 0 rgba(0, 0, 0, 0.24);
-		border-radius: 10px;
-	}
-
-	#links a.button:hover {
-		color: rgb(230, 230, 230);
-		box-shadow: none;
-	}
-
-	pre {
-		font-family:
-			ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono',
-			monospace;
-		font-weight: normal;
-		background: linear-gradient(14deg, #d83333 0%, #f041ff 100%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-		margin: 0;
-	}
-
-	h2 {
-		margin: 0 0 1em;
-		font-weight: normal;
-		color: #111827;
-		font-size: 20px;
-	}
-
-	p {
-		color: #4b5563;
-		font-size: 16px;
-		line-height: 24px;
-		letter-spacing: -0.006em;
-		margin: 0;
-	}
-
-	code {
-		display: inline-block;
-		background:
-			linear-gradient(66.77deg, #f3cddd 0%, #f5cee7 100%) padding-box,
-			linear-gradient(155deg, #d83333 0%, #f041ff 18%, #f5cee7 45%) border-box;
-		border-radius: 8px;
-		border: 1px solid transparent;
-		padding: 6px 8px;
-	}
-
-	.box {
-		padding: 16px;
-		background: rgba(255, 255, 255, 1);
-		border-radius: 16px;
-		border: 1px solid white;
-	}
-
-	#news {
-		position: absolute;
-		bottom: 16px;
-		right: 16px;
-		max-width: 300px;
-		text-decoration: none;
-		transition: background 0.2s;
-		backdrop-filter: blur(50px);
-	}
-
-	#news:hover {
-		background: rgba(255, 255, 255, 0.55);
-	}
-
-	@media screen and (max-height: 368px) {
-		#news {
-			display: none;
-		}
-	}
-
-	@media screen and (max-width: 768px) {
-		#container {
-			display: flex;
-			flex-direction: column;
-		}
-
-		#hero {
-			display: block;
-			padding-top: 10%;
-		}
-
-		#links {
-			flex-wrap: wrap;
-		}
-
-		#links a.button {
-			padding: 14px 18px;
-		}
-
-		#news {
-			right: 16px;
-			left: 16px;
-			bottom: 2.5rem;
-			max-width: 100%;
-		}
-
-		h1 {
-			line-height: 1.5;
-		}
-	}
-</style> -->
-<div class="">
-  <header class="">
-    <nav
-      class="flex flex-row rounded-b-2xl max-w-[1204px] mx-auto mt-6 shadow-md px-12 py-6 gap-16 font-semibold text-3xl items-end justify-between"
+<div class="w-full">
+  <main class="flex flex-col pt-16 lg:gap-52 lg:pt-40 overflow-x-hidden">
+    <!-- Vista Inicio-->
+    <div
+      class="h-screen px-6 py-6 justify-between flex flex-col gap-8 bg-[url('/AiSamuel2.png')] bg-cover bg-center lg:justify-center lg:h-auto lg:flex-row lg:py-0 lg:bg-none lg:rounded-3xl"
+      id="inicio"
     >
-      <div class="rounded-full w-5 h-5 bg-black"></div>
-      <div class="flex flex-row gap-16">
-        <a href="#">Inicio</a>
-        <a href="#">Herramientas</a>
-        <a href="#">Proyectos</a>
-        <a href="#">Contacto</a>
+      <div
+        class="relative h-full z-10 flex flex-col justify-between lg:gap-16 max-w-full lg:max-w-lg text-white lg:text-inherit"
+      >
+        <div
+          class="flex flex-col h-full justify-between lg:gap-10 lg:items-start"
+        >
+          <h1
+            class="font-medium text-5xl text-center pt-4 sm:text-6xl md:text-7xl lg:text-8xl lg:text-left xl:pt-0"
+          >
+            Software <span class="hidden lg:inline-block">.</span>
+            <br class="hidden lg:block" /> Developer.
+          </h1>
+
+          <div
+            class="flex h-full justify-end gap-7 sm:gap-10 flex-col lg:hidden"
+          >
+            <p class="text-sm max-w-2xl self-center md:text-xl">
+              Hola, soy Samuel Chávez!, ingeniero informático y fan del
+              desarrollo web. Aquí muestro algunos proyectos y servicios que
+              realizo. Siempre estoy aprendiendo algo nuevo, y si algo de lo que
+              ves te gusta, ya valió la pena compartirlo.
+            </p>
+            <div
+              class="flex flex-col self-end gap-4 font-semibold text-base lg:text-2xl"
+            >
+              <h3>Encuéntrame en :</h3>
+
+              <div class="flex flex-row gap-4 self-center lg:self-end">
+                <a href="https://www.instagram.com/samuel.ichu/">
+                  <img
+                    src="/icons/instagram.svg"
+                    alt="instagramIcon"
+                    class="w-6 h-6 md:w-12 md:h-12"
+                  />
+                </a>
+
+                <a
+                  href="https://www.facebook.com/carlossamuel.chavezcarcamo/?locale=es_LA"
+                >
+                  <img
+                    src="/icons/facebook.svg"
+                    alt="facebookIcon"
+                    class="w-6 h-6 md:w-12 md:h-12"
+                  />
+                </a>
+                <a href="https://github.com/Samuelichu">
+                  <img
+                    src="/icons/github.svg"
+                    alt="gitHubIcon"
+                    class="ww-6 h-6 md:w-12 md:h-12"
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/carlos-samuel-ch%C3%A1vez-c%C3%A1rcamo/"
+                >
+                  <img
+                    src="/icons/linkedin.svg"
+                    alt="linkedinIcon"
+                    class="w-6 h-6 md:w-12 md:h-12"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+          <p
+            class="text-xs font-medium px-8 sm:text-lg md:text-xl md:max-w-full lg:max-w-md"
+          >
+            <span class="hidden lg:block">
+              Mi nombre es Samuel Chávez, soy egresado de Ingeniería Informática
+              y me apasiona todo lo relacionado al desarrollo web. Esta página
+              es una pequeña muestra de lo que he aprendido, construido y sigo
+              explorando. Aquí encontrarás algunos de los proyectos en los que
+              he participado y los servicios que ofrezco como desarrollador.
+              Sigo creciendo paso a paso, y si algo de lo que ves aquí conecta
+              contigo, ya habrá valido la pena compartirlo.
+            </span>
+          </p>
+        </div>
+        <div
+          class="hidden gap-4 self-center font-semibold text-xl text-center lg:flex lg:flex-col lg:text-2xl lg:self-end lg:text-right"
+        >
+          <h3>Encuéntrame en :</h3>
+          <div class="grid grid-cols-2 justify-items-center p-2 gap-3">
+            <a
+              href="https://www.facebook.com/carlossamuel.chavezcarcamo/?locale=es_LA"
+            >
+              <img
+                src="/icons/facebooklg.svg"
+                alt="facebookIconlg"
+                class="w-12 h-12"
+              />
+            </a>
+
+            <a href="https://www.instagram.com/samuel.ichu/">
+              <img
+                src="/icons/instagramlg.svg"
+                alt="instagramIconlg"
+                class="w-12 h-12"
+              />
+            </a>
+            <a href="https://github.com/Samuelichu">
+              <img
+                src="/icons/githublg.svg"
+                alt="gitHubIcon"
+                class="w-12 h-12"
+              />
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/carlos-samuel-ch%C3%A1vez-c%C3%A1rcamo/"
+            >
+              <img
+                src="/icons/linkedinlg.svg"
+                alt="linkedinIcon"
+                class="w-12 h-12"
+              />
+            </a>
+          </div>
+        </div>
       </div>
-    </nav>
-  </header>
+      <figure class="hidden lg:block object-contain w-full max-w-[550px]">
+        <img
+          class="w-full h-full rounded-3xl"
+          src="/AiSamuel2.png"
+          alt="imageSamuelAI"
+        />
+      </figure>
+    </div>
+
+    <!-- Sección Frameworks y Herramientas -->
+    <div
+      class="h-max flex flex-col gap-16 bg-gradient-to-b from-black/90 to-primary items-center px-4 py-10 xl:gap-8 lg:bg-primary lg:bg-none md:py-16 md:px-20 lg:py-0 lg:px-0 md:items-stretch xl:rounded-bl-[136px] xl:rounded-tr-[136px] lg:h-screen md:justify-around"
+      id="herramientas"
+    >
+      <h3
+        class="text-secondary font-medium text-xl sm:text-3xl lg:text-5xl lg:px-20"
+      >
+        Frameworks y herramientas
+      </h3>
+
+      <!-- Herramientas -->
+      <div
+        class="grid grid-cols-3 gap-5 px-4 md:px-10 lg:flex lg:flex-row lg:flex-wrap lg:justify-end lg:gap-2"
+      >
+        <!-- figma -->
+        <CardTools>
+          <div set:html={toolSvgs.figma} />
+        </CardTools>
+        <!-- Tools en dispositivos moviles y tablets -->
+        <div class="lg:hidden contents">
+          <div>
+            <CardTools><div set:html={toolSvgs.html} /></CardTools>
+          </div>
+          <div>
+            <CardTools><div set:html={toolSvgs.css} /></CardTools>
+          </div>
+          <div>
+            <CardTools>
+              <img
+                src="/icons/tailwindcss.svg"
+                alt="iconAngular"
+                class="w-12 h-12"
+              />
+            </CardTools>
+          </div>
+          <div>
+            <CardTools>
+              <img
+                src="/icons/angular.svg"
+                alt="iconAngular"
+                class="w-12 h-12"
+              />
+            </CardTools>
+          </div>
+          <div>
+            <CardTools><div set:html={toolSvgs.javascript} /></CardTools>
+          </div>
+          <div>
+            <CardTools><div set:html={toolSvgs.typescript} /></CardTools>
+          </div>
+        </div>
+
+        <!-- Distribución actual para escritorio  -->
+        <div class="hidden lg:grid relative grid-cols-4 gap-y-1 gap-x-2">
+          <!-- html -->
+          <div class="col-span-1 place-self-center">
+            <CardTools>
+              <div set:html={toolSvgs.html} />
+            </CardTools>
+          </div>
+          <!-- css -->
+          <div class="col-span-1 place-self-center">
+            <CardTools>
+              <div set:html={toolSvgs.css} />
+            </CardTools>
+          </div>
+
+          <div class="col-span-2"></div>
+
+          <div class="hidden lg:block col-span-2">
+            <CardTools noPadding>
+              <p class="text-start max-w-60 px-5 text-secondary">
+                Algunas de las tecnologías que utilizo
+              </p>
+            </CardTools>
+          </div>
+          <div class="col-span-2 flex flex-col gap-2">
+            <!-- tailwind -->
+            <div class="h-16 max-w-32">
+              <CardTools>
+                <div set:html={toolSvgs.tailwind} />
+              </CardTools>
+            </div>
+            <!-- javascript -->
+
+            <div class="h-40 max-w-44">
+              <CardTools>
+                <div set:html={toolSvgs.javascript} />
+              </CardTools>
+            </div>
+          </div>
+          <!-- Astro -->
+          <div
+            class="hidden lg:block absolute right-24 -top-20 rotate-12"
+            id="nave"
+          >
+            <CardTools>
+              <div set:html={toolSvgs.astro} />
+            </CardTools>
+          </div>
+        </div>
+        <div
+          class="hidden lg:relative lg:flex lg:flex-col lg:items-center lg:justify-end"
+        >
+          <div class="h-60 absolute -rotate-[0.3rad] right-9 bottom-16">
+            <!-- Angular -->
+            <CardTools><div set:html={toolSvgs.angular} /></CardTools>
+          </div>
+
+          <div class="w-16 h-min -translate-x-4">
+            <!-- TypeScript -->
+            <CardTools noPadding>
+              <div set:html={toolSvgs.typescript} />
+            </CardTools>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vista Proyectos y contribuciones -->
+
+    <div
+      class="flex flex-col gap-12 py-16 justify-center items-center md:gap-24 lg:items-stretch lg:py-0 lg:h-screen"
+      id="proyectos"
+    >
+      <h2
+        class="text-primary font-semibold text-xl sm:text-3xl lg:text-5xl md:px-20 md:self-start"
+      >
+        Proyectos y Colaboraciones
+      </h2>
+      <div class="flex flex-wrap justify-center gap-11 px-5 sm:px-10">
+        {
+          allPosts.map((post) => (
+            <CardProyects
+              titulo={post.frontmatter.title}
+              src={post.frontmatter.image}
+              descripcion={post.frontmatter.description}
+            />
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Vista mis servicios-->
+    <div class="flex flex-col gap-8 md:gap-16">
+      <h2
+        class="text-primary font-semibold text-xl sm:text-3xl lg:text-5xl md:px-20 text-center md:text-left"
+      >
+        Mis Servicios
+      </h2>
+
+      <!--servicios-->
+      <div class="flex flex-col">
+        <div class="bg-primary py-16">
+          <div class="flex flex-wrap justify-center gap-16 px-5">
+            <CardServices
+              titulo1="Diseños"
+              titulo2="UX/UI"
+              descripcion="Me encargo de dar forma a tus ideas con prototipos interactivos hechos en Figma. Esto te permite ver cómo se vería y funcionaría tu producto antes de desarrollarlo, lo que ayuda a tener una mejor visión del proyecto, hacer ajustes a tiempo y asegurarnos de que todo esté alineado con lo que buscas. "
+            />
+
+            <CardServices
+              titulo1="Desarrollo"
+              titulo2="Front End"
+              descripcion="Me encargo de construir la parte visual y funcional de tu sitio o aplicación web, asegurando que todo se vea bien y funcione como esperas. Uso tecnologías modernas para crear interfaces rápidas, responsivas y pensadas en la experiencia del usuario, adaptándome siempre a lo que tu proyecto necesita."
+            />
+          </div>
+        </div>
+
+        <!-- fases -->
+        <div class="bg-primary xl:rounded-b-3xl xl:self-center">
+          <div class="">
+            <!-- Línea de tiempo (horizontal) -->
+            <div
+              class="relative flex justify-center items-center h-2 bg-tertiary xl:bg-white"
+            >
+              <!-- Puntos de la línea -->
+              <div
+                class="hidden xl:block absolute left-1/4 -top-2 w-6 h-6 bg-tertiary shadow-black/50 shadow-xl rounded-full"
+              >
+              </div>
+              <div
+                class="hidden xl:block absolute left-1/2 -top-2 w-6 h-6 bg-tertiary shadow-black/50 shadow-xl rounded-full"
+              >
+              </div>
+              <div
+                class="hidden xl:block absolute right-1/4 -top-2 w-6 h-6 bg-tertiary shadow-black/50 shadow-xl rounded-full"
+              >
+              </div>
+            </div>
+          </div>
+
+          <div class="flex py-11 flex-wrap justify-around gap-8 sm:px-11">
+            <Phases
+              titulo="Descubrimiento y Planificación"
+              number="01"
+              descripcion="Analizo lo que necesitas, definimos objetivos y organizamos cómo vamos a trabajar."
+            />
+            <Phases
+              titulo="Desarrollo"
+              number="02"
+              descripcion="Damos forma a la idea: ya sea diseñando la interfaz o construyendo el sitio en código."
+            />
+            <Phases
+              titulo="Despliegue y Entrega"
+              number="03"
+              descripcion="Revisamos todo, lo dejamos listo y realizamos la entrega del producto, o continuamos mejorandolo."
+            />
+          </div>
+        </div>
+        <!-- Pequeña Biografia-->
+        <div
+          class="flex flex-col px-4 py-4 md:py-0 md:flex-row justify-around items-center gap-5"
+        >
+          <div
+            class="frase flex flex-row justify-around w-full gap-2 md:justify-normal md:w-auto md:gap-8 md:flex-col font-medium text-md py-11 md:text-4xl text-primary drop-shadow-md md:drop-shadow-none"
+          >
+            <h2
+              class="bg-tertiary px-3 py-1 rounded-full md:bg-transparent md:px-0 md:py-0 md:rounded-none"
+            >
+              imaginas<span class="md:text-2xl text-md">.</span>
+            </h2>
+            <h2
+              class="bg-tertiary px-3 py-1 rounded-full md:bg-transparent md:px-0 md:py-0 md:rounded-none"
+            >
+              construyes<span class="md:text-2xl text-md">.</span>
+            </h2>
+            <h2
+              class="bg-tertiary px-3 py-1 rounded-full md:bg-transparent md:px-0 md:py-0 md:rounded-none"
+            >
+              innovas<span class="md:text-2xl text-md">.</span>
+            </h2>
+          </div>
+          <svg
+            class="hidden md:block"
+            width="117"
+            height="700"
+            viewBox="0 0 117 1296"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.0140136 2.80652C-0.111441 1.43201 0.630546 0.183838 1.67156 0.0181885C2.71257 -0.147461 3.65788 0.832153 3.78335 2.20667L63.3865 718.039C63.4618 718.944 63.6599 719.834 63.9754 720.685L116.368 862.03C117.402 864.82 117.14 867.925 115.653 870.502L37.4908 1005.99C36.8063 1007.18 36.3729 1008.49 36.2174 1009.85L3.77593 1293.87C3.61958 1295.24 2.65262 1296.18 1.61594 1295.97C0.579231 1295.77 -0.134718 1294.49 0.0214299 1293.12L32.6085 1007.84C32.7639 1006.47 33.1973 1005.16 33.8819 1003.97L111.271 869.824C112.762 867.24 113.021 864.125 111.978 861.33L59.4842 720.699C59.163 719.839 58.9619 718.938 58.8866 718.023L0.0140136 2.80652Z"
+              fill="#30382F"></path>
+          </svg>
+          <!-- Vista mis logros-->
+          <div class="flex flex-col gap-4 md:gap-10 px-10">
+            <div class="order-2 md:order-1 text-normal md:text-lg font-medium">
+              Salmo 37 : 5 <p class="text-xs">
+                "Pon tu camino en manos de Jehová confía en él, y él actuará a
+                tu favor"
+              </p>
+            </div>
+            <div
+              class="order-1 md:order-2 pb-5 md:pb-0 relative max-w-lg cursor-pointer transition-all duration-300 ease-in-out hover:scale-105"
+            >
+              <img
+                class="relative rotate-2 rounded-[40px] z-10"
+                src="/ImageBiography.jpeg"
+                alt=""
+              />
+              <img
+                class="opacity-65 absolute top-3 right-5 rounded-[40px] z-0"
+                src="/ImageBiography.jpeg"
+                alt=""
+              />
+            </div>
+            <div class="order-3">
+              <p class="max-w-md">
+                Como todos, <span class="font-bold">tengo un sueño.</span>
+                <br /> Esta página es parte de ese sueño: un espacio donde comparto
+                lo que voy aprendiendo, creando y soñando. Gracias por tu apoyo :)
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
 </div>
+
+<script>
+  import gsap from "gsap";
+
+  gsap.to("#nave", {
+    y: -30,
+    duration: 2,
+    repeat: -1,
+    yoyo: true,
+    ease: "power1.inOut",
+  });
+
+  gsap.fromTo(
+    ".frase h2",
+    { y: 50, opacity: 0, scale: 0.8 },
+    {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      ease: "power3.out",
+      stagger: 0.4,
+      duration: 0.8,
+      scrollTrigger: {
+        trigger: ".frase",
+        start: "top 80%",
+        toggleActions: "play reverse play reverse",
+      },
+    }
+  );
+</script>

@@ -1,0 +1,64 @@
+---
+interface Props {
+  titulo1: string;
+  titulo2: string;
+  descripcion: string;
+}
+
+const { titulo1 = "", titulo2 = "", descripcion } = Astro.props;
+---
+
+<div class="flex flex-row justify-center gap-2" id="services">
+  <h2 class="hidden xl:block font-medium text-9xl text-secondary self-start" id="title1">{titulo1}</h2>
+  <div
+    class="relative flex flex-col rounded-xl shadow-lg bg-tertiary text-primary p-5 justify-center max-w-md gap-3 md:max-w-xs lg:max-w-md"
+  >
+    <h2 class="block xl:hidden font-semibold text-xl">{titulo1 + " " + titulo2}</h2>
+    <p class="font-medium text-sm ">{descripcion}</p>
+  </div>
+  <h2 class="hidden xl:block font-medium text-9xl self-end text-secondary" id="title2">{titulo2}</h2>
+</div>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Animación para title1 (entra desde la izquierda)
+  window.addEventListener("DOMContentLoaded", () => {
+    const elementos1 = gsap.utils.toArray("#title1") as HTMLElement[];
+    const elementos2 = gsap.utils.toArray("#title2") as HTMLElement[];
+
+    elementos1.forEach((el) => {
+      gsap.fromTo(el, { x: -100, opacity: 0 }, {
+        x: 0,
+        opacity: 1,
+        duration: 1.5,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play reverse play reverse",
+          markers: false,
+        }
+      });
+    });
+
+    elementos2.forEach((el) => {
+      gsap.fromTo(el, { x: 100, opacity: 0 }, {
+        x: 0,
+        opacity: 1,
+        duration: 1.5,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 70%",
+          end: "bottom 20%",
+          toggleActions: "play reverse play reverse",
+          markers: false,
+        }
+      });
+    });
+  });
+</script>

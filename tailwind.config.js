@@ -1,9 +1,23 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        "clash-display": ["ClashDisplay", "sans-serif"],
+      },
+      colors: {
+        primary: {
+          DEFAULT: '#30382F', // Verde principal
+        },
+        secondary: {
+          DEFAULT: '#FBFBDf', // Blanco principal
+        },
+        tertiary: {
+          DEFAULT: '#AFC87E', // Verde secundario
+        }
+      }
+    },
   },
   plugins: [],
-}
-
+};
