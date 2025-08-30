@@ -35,9 +35,7 @@ const toolSvgs: Record<string, string> = {
 ---
 
 <div class="w-full">
-  <main
-    class="flex flex-col lg:gap-52 lg:pt-40 overflow-x-hidden"
-  >
+  <main class="flex flex-col pt-16 lg:gap-52 lg:pt-40 overflow-x-hidden">
     <!-- Vista Inicio-->
     <div
       class="h-screen px-6 py-6 justify-between flex flex-col gap-8 bg-[url('/AiSamuel2.png')] bg-cover bg-center lg:justify-center lg:h-auto lg:flex-row lg:py-0 lg:bg-none lg:rounded-3xl"
@@ -47,15 +45,18 @@ const toolSvgs: Record<string, string> = {
         class="relative h-full z-10 flex flex-col justify-between lg:gap-16 max-w-full lg:max-w-lg text-white lg:text-inherit"
       >
         <div
-          class="flex flex-col h-full justify-between lg:gap-4 lg:items-start"
+          class="flex flex-col h-full justify-between lg:gap-10 lg:items-start"
         >
           <h1
             class="font-medium text-5xl text-center pt-4 sm:text-6xl md:text-7xl lg:text-8xl lg:text-left xl:pt-0"
           >
-            Software <br class="hidden lg:block" /> Developer
+            Software <span class="hidden lg:inline-block">.</span>
+            <br class="hidden lg:block" /> Developer.
           </h1>
 
-          <div class="flex h-full justify-end gap-7 sm:gap-10 flex-col lg:hidden">
+          <div
+            class="flex h-full justify-end gap-7 sm:gap-10 flex-col lg:hidden"
+          >
             <p class="text-sm max-w-2xl self-center md:text-xl">
               Hola, soy Samuel Chávez!, ingeniero informático y fan del
               desarrollo web. Aquí muestro algunos proyectos y servicios que
@@ -68,31 +69,44 @@ const toolSvgs: Record<string, string> = {
               <h3>Encuéntrame en :</h3>
 
               <div class="flex flex-row gap-4 self-center lg:self-end">
-                <img
-                  src="/icons/instagram.svg"
-                  alt="instagramIcon"
-                  class="w-6 h-6 md:w-12 md:h-12"
-                />
-                <img
-                  src="/icons/facebook.svg"
-                  alt="facebookIcon"
-                  class="w-6 h-6 md:w-12 md:h-12"
-                />
-                <img
-                  src="/icons/github.svg"
-                  alt="gitHubIcon"
-                  class="ww-6 h-6 md:w-12 md:h-12"
-                />
-                <img
-                  src="/icons/linkedin.svg"
-                  alt="linkedinIcon"
-                  class="w-6 h-6 md:w-12 md:h-12"
-                />
+                <a href="https://www.instagram.com/samuel.ichu/">
+                  <img
+                    src="/icons/instagram.svg"
+                    alt="instagramIcon"
+                    class="w-6 h-6 md:w-12 md:h-12"
+                  />
+                </a>
+
+                <a
+                  href="https://www.facebook.com/carlossamuel.chavezcarcamo/?locale=es_LA"
+                >
+                  <img
+                    src="/icons/facebook.svg"
+                    alt="facebookIcon"
+                    class="w-6 h-6 md:w-12 md:h-12"
+                  />
+                </a>
+                <a href="https://github.com/Samuelichu">
+                  <img
+                    src="/icons/github.svg"
+                    alt="gitHubIcon"
+                    class="ww-6 h-6 md:w-12 md:h-12"
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/carlos-samuel-ch%C3%A1vez-c%C3%A1rcamo/"
+                >
+                  <img
+                    src="/icons/linkedin.svg"
+                    alt="linkedinIcon"
+                    class="w-6 h-6 md:w-12 md:h-12"
+                  />
+                </a>
               </div>
             </div>
           </div>
           <p
-            class="text-xs px-8 sm:text-lg md:text-xl md:max-w-full lg:max-w-md"
+            class="text-xs font-medium px-8 sm:text-lg md:text-xl md:max-w-full lg:max-w-md"
           >
             <span class="hidden lg:block">
               Mi nombre es Samuel Chávez, soy egresado de Ingeniería Informática
@@ -110,26 +124,40 @@ const toolSvgs: Record<string, string> = {
         >
           <h3>Encuéntrame en :</h3>
           <div class="grid grid-cols-2 justify-items-center p-2 gap-3">
-            <img
-              src="/icons/facebooklg.svg"
-              alt="facebookIconlg"
-              class="w-12 h-12"
-            />
-            <img
-              src="/icons/instagramlg.svg"
-              alt="instagramIconlg"
-              class="w-12 h-12"
-            />
-            <img
-              src="/icons/githublg.svg"
-              alt="gitHubIcon"
-              class="w-12 h-12"
-            />
-            <img
-              src="/icons/linkedinlg.svg"
-              alt="linkedinIcon"
-              class="w-12 h-12"
-            />
+            <a
+              href="https://www.facebook.com/carlossamuel.chavezcarcamo/?locale=es_LA"
+            >
+              <img
+                src="/icons/facebooklg.svg"
+                alt="facebookIconlg"
+                class="w-12 h-12"
+              />
+            </a>
+
+            <a href="https://www.instagram.com/samuel.ichu/">
+              <img
+                src="/icons/instagramlg.svg"
+                alt="instagramIconlg"
+                class="w-12 h-12"
+              />
+            </a>
+            <a href="https://github.com/Samuelichu">
+              <img
+                src="/icons/githublg.svg"
+                alt="gitHubIcon"
+                class="w-12 h-12"
+              />
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/carlos-samuel-ch%C3%A1vez-c%C3%A1rcamo/"
+            >
+              <img
+                src="/icons/linkedinlg.svg"
+                alt="linkedinIcon"
+                class="w-12 h-12"
+              />
+            </a>
           </div>
         </div>
       </div>
@@ -358,7 +386,7 @@ const toolSvgs: Record<string, string> = {
           class="flex flex-col px-4 py-4 md:py-0 md:flex-row justify-around items-center gap-5"
         >
           <div
-            class="frase flex flex-row justify-around w-full gap-2 md:justify-normal md:w-auto md:gap-8 md:flex-col  font-bold text-md py-11  md:text-4xl text-primary drop-shadow-md md:drop-shadow-none"
+            class="frase flex flex-row justify-around w-full gap-2 md:justify-normal md:w-auto md:gap-8 md:flex-col font-medium text-md py-11 md:text-4xl text-primary drop-shadow-md md:drop-shadow-none"
           >
             <h2
               class="bg-tertiary px-3 py-1 rounded-full md:bg-transparent md:px-0 md:py-0 md:rounded-none"
@@ -390,8 +418,11 @@ const toolSvgs: Record<string, string> = {
           </svg>
           <!-- Vista mis logros-->
           <div class="flex flex-col gap-4 md:gap-10 px-10">
-            <div class="order-2 md:order-1 text-normal md:text-2xl font-bold">
-              Salmo 37 : <span>5</span>
+            <div class="order-2 md:order-1 text-normal md:text-lg font-medium">
+              Salmo 37 : 5 <p class="text-xs">
+                "Pon tu camino en manos de Jehová confía en él, y él actuará a
+                tu favor"
+              </p>
             </div>
             <div
               class="order-1 md:order-2 pb-5 md:pb-0 relative max-w-lg cursor-pointer transition-all duration-300 ease-in-out hover:scale-105"
